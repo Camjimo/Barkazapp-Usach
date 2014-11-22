@@ -1,0 +1,29 @@
+<%% if notice -%>
+<p id="notice"><%%= notice %></p>
+<%% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+	<% attributes.reject(&:password_digest?).each do |attribute| -%>
+	<%- if attribute.reference? -%>
+		<tr>
+			<th><%= attribute.human_name %>:</th>
+			<td><%%= @<%= singular_table_name %>.<%= attribute.name %>.name %></td>
+		</tr>
+	<%- else -%>
+		<tr>
+		  <th><%= attribute.human_name %>:</th>
+		  <td><%%= @<%= singular_table_name %>.<%= attribute.name %> %></td>
+		</tr>
+	<%- end -%>
+	<% end -%>
+	</tbody>
+</table>
+
+<%%= link_to 'Edit', edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => "btn btn-default" %>
+<%%= link_to 'Destroy', @<%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%%= link_to 'Back', <%= index_helper %>_path, :class => "btn btn-link" %>

@@ -1,0 +1,28 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Name:</th>
+		  <td><%= @product.name %></td>
+		</tr>
+			<tr>
+		  <th>Description:</th>
+		  <td><%= @product.description %></td>
+		</tr>
+			<tr>
+			<th>Category:</th>
+			<td><%= @product.category.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_product_path(@product), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', products_path, :class => "btn btn-link" %>
