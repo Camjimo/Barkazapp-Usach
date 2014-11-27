@@ -1,0 +1,37 @@
+<%= form_for(@catalogo_material) do |f| %>
+<% if @catalogo_material.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@catalogo_material.errors.count, "error") %> prohibited this catalogo_material from being saved:</h2>
+
+    <ul>
+        <% @catalogo_material.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+                <%= f.label :cantidad_material %>
+            <%= f.number_field :cantidad_material, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :precio_material %>
+            <%= f.number_field :precio_material, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :material_id %>
+            <%= f.collection_select :material_id, Material.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="form-group">
+                <%= f.label :unidad_medida_id %>
+            <%= f.collection_select :unidad_medida_id, UnidadMedida.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="form-group">
+                <%= f.label :proveedor_id %>
+            <%= f.collection_select :proveedor_id, Proveedor.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="actions">
+    <%= f.submit :class => "btn btn-success" %>
+</div>
+<% end %>

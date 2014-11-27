@@ -1,0 +1,20 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Nombre:</th>
+		  <td><%= @tipo_usuario.nombre %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_tipo_usuario_path(@tipo_usuario), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @tipo_usuario, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', tipo_usuarios_path, :class => "btn btn-link" %>

@@ -1,2 +1,30 @@
-<h1>Hola mundo!</h1>
-<p>Simplemente otro hola mundo!</p>
+<div style="background-color:white;height:100%;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:39px">
+	<h2 class="text-center" style="color:#660000"><strong>BIENVENIDO</strong></h2>
+	<br/>
+	<p class="text-center" style="color:#660000">
+		Por favor, para comenzar escoja una categoría para entrar como administrador, garzón o auditor.
+	<p/>
+	<br/>
+	<table width="100%">
+		<tr>
+			<td>
+				<img src="/img/Barkazapp.png" width="250px" height="250px">
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/administrator.jpg", :class => "img-thumbnail", :style => "width:100px;height:100px"), menu_index_path %>
+				<br/>
+				<%= link_to "Administrador",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/garzon.png", :class => "img-thumbnail", :style => "width:100px;height:100px"), menu_index_path %>
+				<br/>
+				
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/auditor.jpg", :class => "img-thumbnail", :style => "width:100px;height:100px"), menu_index_path %>
+				<br/>
+				
+			</td>
+		</tr>
+	</table>
+</div>

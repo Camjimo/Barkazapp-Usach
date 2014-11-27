@@ -1,0 +1,36 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Monto total:</th>
+		  <td><%= @compra.monto_total %></td>
+		</tr>
+			<tr>
+		  <th>Fecha:</th>
+		  <td><%= @compra.fecha %></td>
+		</tr>
+			<tr>
+		  <th>Monto iva:</th>
+		  <td><%= @compra.monto_iva %></td>
+		</tr>
+			<tr>
+		  <th>Tipo:</th>
+		  <td><%= @compra.tipo %></td>
+		</tr>
+			<tr>
+			<th>Proveedor:</th>
+			<td><%= @compra.proveedor.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_compra_path(@compra), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @compra, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', compras_path, :class => "btn btn-link" %>

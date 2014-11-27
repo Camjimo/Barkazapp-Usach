@@ -1,10 +1,55 @@
 Tut1::Application.routes.draw do
+  resources :equivalencia
+
+  resources :catalogo_materials
+
+  resources :detalle_compras
+
+  resources :compras
+
+  resources :tipo_contenedors
+
+  resources :proveedors
+
+  resources :inventario_detalles
+
+  resources :inventarios
+
+  resources :lotes
+
+  resources :receta
+
+  resources :materials
+
+  resources :unidad_medidas
+
+  resources :tipo_materials
+
+  resources :historial_precio_productos
+
+  resources :historial_costo_productos
+
+  resources :productos
+
+  resources :usuarios
+
+  resources :tipo_usuarios
+
+  resources :pedidos
+
+  resources :tipo_pagos
+
+  resources :estado_pedidos
+
+  resources :mesas
+
   resources :categories
 
   resources :products
 
   devise_for :users
   get "index/home"
+  get "menu/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

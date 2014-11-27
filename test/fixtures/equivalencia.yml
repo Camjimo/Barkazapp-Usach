@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cantidad: 1
+  unidad_medida_id: 
+  tipo_contenedor_id: 
+
+two:
+  cantidad: 1
+  unidad_medida_id: 
+  tipo_contenedor_id: 

@@ -1,0 +1,79 @@
+<div style="background-color:white;height:100%;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:39px">
+	<h2 class="text-center" style="color:#660000"><strong>MENÚ ADMINISTRADOR</strong></h2>
+	<br/>
+	<p class="text-center" style="color:#660000">
+		Por favor, escoja una categoría para continuar.
+	<p/>
+	<br/>
+	<table width="100%" >
+		<tr>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/Barkazapp.png",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Carta",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/usuario.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Usuarios",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/pedido.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Comandas",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/compra.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Compras",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/inventario.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Inventario",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/material.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Material",menu_index_path, :class => "btn btn-link" %>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6">
+				&nbsp
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/producto.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Producto",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/bodega.png",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Bodega",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/mantenedores.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Mantenedores",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/estadistica.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Estadísticas",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/proveedores.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Proveedores",menu_index_path, :class => "btn btn-link" %>
+			</td>
+			<td style="text-align:center">
+				<%= link_to image_tag("/img/auditoria.jpg",:style => "height:100px;width:100px", :class => "img-thumbnail"), menu_index_path %>
+				<br/>
+				<%= link_to "Auditorias",menu_index_path, :class => "btn btn-link" %>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,2 @@
+module HistorialPrecioProductosHelper
+end

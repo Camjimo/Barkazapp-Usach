@@ -1,0 +1,29 @@
+<h1>Listing tipo_usuarios</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Tipo usuario', new_tipo_usuario_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipo_usuarios.each do |tipo_usuario| %>
+      <tr>
+                    <td><%= tipo_usuario.nombre %></td>
+                <td><%= link_to 'Detail', tipo_usuario %></td>
+        <!-- <td><%= link_to 'Edit', edit_tipo_usuario_path(tipo_usuario) %></td>
+        <td><%= link_to 'Destroy', tipo_usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

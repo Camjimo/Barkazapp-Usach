@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-	<title>Rails boilerplate</title>
+	<title>Barkazapp</title>
 
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -12,10 +12,14 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:#660000;height:100px">
 			<div class="container">
+				<div style="position:absolute">
+					<img src="/img/Barkazapp.png" style="height:90px;width:90px;background-color:white;margin-top:5px">
+				</div>
 				<div class="container-fluid">
-					<div class="navbar-header">
+					<h1 class="text-center" style="color:white"><strong>Sistema de Administración - Barkaza Restaurante</strong></h1>
+					<!--<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
@@ -51,14 +55,14 @@
 								</ul>
 							</li>
 						</ul>
-					</div>
+					</div>-->
 				</div>
 			</div>			
 			</nav>
 		</div>
-		<div id="header-ghost"></div>
-		<div id="body">
-			<div class="container">
+		<div id="header-ghost" style="height:100px"></div>
+		<div id="body" style="background-color:#660000;width=100%">
+			<div class="container" style="margin:0px;width:100%">
 				<div class="row">
 					<div class="col-sm-12">
 						<%= yield %>
@@ -66,16 +70,14 @@
 				</div>
 			</div>
 		</div>
-		<div id="footer-ghost">
-			
-		</div>
-		<div id="footer">
+		<div id="footer-ghost" style="background-color:#660000"></div>
+		<!--<div id="footer" style="background-color:#660000">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-right"><a href="http://www.requies.cl/">Requies</a>, 2014</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 	</div>
 
 	<script src="/js/bootstrap/transition.js"></script>

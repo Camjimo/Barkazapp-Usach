@@ -1,0 +1,29 @@
+<h1>Listing estado_pedidos</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Estado pedido', new_estado_pedido_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @estado_pedidos.each do |estado_pedido| %>
+      <tr>
+                    <td><%= estado_pedido.nombre %></td>
+                <td><%= link_to 'Detail', estado_pedido %></td>
+        <!-- <td><%= link_to 'Edit', edit_estado_pedido_path(estado_pedido) %></td>
+        <td><%= link_to 'Destroy', estado_pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

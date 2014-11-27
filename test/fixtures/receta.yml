@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cantidad_compuesto: 1
+  material_id: 
+  producto_id: 
+
+two:
+  cantidad_compuesto: 1
+  material_id: 
+  producto_id: 

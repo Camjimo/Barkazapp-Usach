@@ -1,0 +1,36 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Cantidad material:</th>
+		  <td><%= @catalogo_material.cantidad_material %></td>
+		</tr>
+			<tr>
+		  <th>Precio material:</th>
+		  <td><%= @catalogo_material.precio_material %></td>
+		</tr>
+			<tr>
+			<th>Material:</th>
+			<td><%= @catalogo_material.material.name %></td>
+		</tr>
+			<tr>
+			<th>Unidad medida:</th>
+			<td><%= @catalogo_material.unidad_medida.name %></td>
+		</tr>
+			<tr>
+			<th>Proveedor:</th>
+			<td><%= @catalogo_material.proveedor.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_catalogo_material_path(@catalogo_material), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @catalogo_material, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', catalogo_materials_path, :class => "btn btn-link" %>

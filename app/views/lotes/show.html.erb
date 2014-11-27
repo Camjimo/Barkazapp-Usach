@@ -1,0 +1,44 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Stock original:</th>
+		  <td><%= @lote.stock_original %></td>
+		</tr>
+			<tr>
+		  <th>Stock actual bodega:</th>
+		  <td><%= @lote.stock_actual_bodega %></td>
+		</tr>
+			<tr>
+		  <th>Stock actual cocina:</th>
+		  <td><%= @lote.stock_actual_cocina %></td>
+		</tr>
+			<tr>
+		  <th>Stock actual bar:</th>
+		  <td><%= @lote.stock_actual_bar %></td>
+		</tr>
+			<tr>
+		  <th>Precio compra:</th>
+		  <td><%= @lote.precio_compra %></td>
+		</tr>
+			<tr>
+			<th>Material:</th>
+			<td><%= @lote.material.name %></td>
+		</tr>
+			<tr>
+			<th>Unidad medida:</th>
+			<td><%= @lote.unidad_medida.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_lote_path(@lote), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @lote, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', lotes_path, :class => "btn btn-link" %>

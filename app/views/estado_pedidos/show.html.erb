@@ -1,0 +1,20 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Nombre:</th>
+		  <td><%= @estado_pedido.nombre %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_estado_pedido_path(@estado_pedido), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @estado_pedido, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', estado_pedidos_path, :class => "btn btn-link" %>

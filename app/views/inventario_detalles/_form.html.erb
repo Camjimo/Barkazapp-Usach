@@ -1,0 +1,29 @@
+<%= form_for(@inventario_detalle) do |f| %>
+<% if @inventario_detalle.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@inventario_detalle.errors.count, "error") %> prohibited this inventario_detalle from being saved:</h2>
+
+    <ul>
+        <% @inventario_detalle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+                <%= f.label :stcok_local_material %>
+            <%= f.number_field :stcok_local_material, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :material_id %>
+            <%= f.collection_select :material_id, Material.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="form-group">
+                <%= f.label :inventario_id %>
+            <%= f.collection_select :inventario_id, Inventario.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="actions">
+    <%= f.submit :class => "btn btn-success" %>
+</div>
+<% end %>

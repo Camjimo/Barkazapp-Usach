@@ -1,0 +1,40 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Nombre:</th>
+		  <td><%= @material.nombre %></td>
+		</tr>
+			<tr>
+		  <th>Pmp:</th>
+		  <td><%= @material.pmp %></td>
+		</tr>
+			<tr>
+		  <th>Cantidad:</th>
+		  <td><%= @material.cantidad %></td>
+		</tr>
+			<tr>
+			<th>Tipo material:</th>
+			<td><%= @material.tipo_material.name %></td>
+		</tr>
+			<tr>
+			<th>Unidad medida:</th>
+			<td><%= @material.unidad_medida.name %></td>
+		</tr>
+			<tr>
+			<th>Unidad medida:</th>
+			<td><%= @material.unidad_medida.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_material_path(@material), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @material, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', materials_path, :class => "btn btn-link" %>

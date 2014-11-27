@@ -1,0 +1,28 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Cantidad:</th>
+		  <td><%= @equivalencium.cantidad %></td>
+		</tr>
+			<tr>
+			<th>Unidad medida:</th>
+			<td><%= @equivalencium.unidad_medida.name %></td>
+		</tr>
+			<tr>
+			<th>Tipo contenedor:</th>
+			<td><%= @equivalencium.tipo_contenedor.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_equivalencium_path(@equivalencium), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @equivalencium, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', equivalencia_path, :class => "btn btn-link" %>

@@ -1,0 +1,41 @@
+<h1>Listing detalle_compras</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Detalle compra', new_detalle_compra_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Cantidad compra</th>
+      <th>Precio unidad compra</th>
+      <th>Total compra</th>
+      <th>Fecha vencimiento lote</th>
+      <th>Material</th>
+      <th>Tipo contenedor</th>
+      <th>Compra</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detalle_compras.each do |detalle_compra| %>
+      <tr>
+                    <td><%= detalle_compra.cantidad_compra %></td>
+                    <td><%= detalle_compra.precio_unidad_compra %></td>
+                    <td><%= detalle_compra.total_compra %></td>
+                    <td><%= detalle_compra.fecha_vencimiento_lote %></td>
+                    <td><%= detalle_compra.material.name %></td>
+                    <td><%= detalle_compra.tipo_contenedor.name %></td>
+                    <td><%= detalle_compra.compra.name %></td>
+                <td><%= link_to 'Detail', detalle_compra %></td>
+        <!-- <td><%= link_to 'Edit', edit_detalle_compra_path(detalle_compra) %></td>
+        <td><%= link_to 'Destroy', detalle_compra, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

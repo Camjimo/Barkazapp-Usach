@@ -1,0 +1,29 @@
+<h1>Listing tipo_materials</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Tipo material', new_tipo_material_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipo_materials.each do |tipo_material| %>
+      <tr>
+                    <td><%= tipo_material.nombre %></td>
+                <td><%= link_to 'Detail', tipo_material %></td>
+        <!-- <td><%= link_to 'Edit', edit_tipo_material_path(tipo_material) %></td>
+        <td><%= link_to 'Destroy', tipo_material, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

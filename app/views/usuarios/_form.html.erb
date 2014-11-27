@@ -1,0 +1,41 @@
+<%= form_for(@usuario) do |f| %>
+<% if @usuario.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+    <ul>
+        <% @usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+                <%= f.label :nombre %>
+            <%= f.text_field :nombre, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :apellido %>
+            <%= f.text_field :apellido, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :pinpass %>
+            <%= f.text_field :pinpass, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :rut %>
+            <%= f.text_field :rut, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :estado %>
+            <%= f.text_field :estado, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :tipo_usuario_id %>
+            <%= f.collection_select :tipo_usuario_id, TipoUsuario.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="actions">
+    <%= f.submit :class => "btn btn-success" %>
+</div>
+<% end %>

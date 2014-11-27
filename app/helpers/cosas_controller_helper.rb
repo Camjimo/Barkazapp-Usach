@@ -1,0 +1,2 @@
+module CosasControllerHelper
+end

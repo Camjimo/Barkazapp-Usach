@@ -1,0 +1,24 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Nombre:</th>
+		  <td><%= @unidad_medida.nombre %></td>
+		</tr>
+			<tr>
+		  <th>Simbolo:</th>
+		  <td><%= @unidad_medida.simbolo %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_unidad_medida_path(@unidad_medida), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @unidad_medida, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', unidad_medidas_path, :class => "btn btn-link" %>

@@ -1,0 +1,36 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Nombre:</th>
+		  <td><%= @producto.nombre %></td>
+		</tr>
+			<tr>
+		  <th>Tipo:</th>
+		  <td><%= @producto.tipo %></td>
+		</tr>
+			<tr>
+		  <th>Precio:</th>
+		  <td><%= @producto.precio %></td>
+		</tr>
+			<tr>
+		  <th>Actual:</th>
+		  <td><%= @producto.actual %></td>
+		</tr>
+			<tr>
+		  <th>Costo:</th>
+		  <td><%= @producto.costo %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_producto_path(@producto), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @producto, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', productos_path, :class => "btn btn-link" %>

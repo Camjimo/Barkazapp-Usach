@@ -1,0 +1,39 @@
+<h1>Listing pedidos</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Pedido', new_pedido_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Monto total</th>
+      <th>Mesa</th>
+      <th>Estado pedido</th>
+      <th>Tipo pago</th>
+      <th>Usuario</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pedidos.each do |pedido| %>
+      <tr>
+                    <td><%= pedido.fecha %></td>
+                    <td><%= pedido.monto_total %></td>
+                    <td><%= pedido.mesa.name %></td>
+                    <td><%= pedido.estado_pedido.name %></td>
+                    <td><%= pedido.tipo_pago.name %></td>
+                    <td><%= pedido.usuario.name %></td>
+                <td><%= link_to 'Detail', pedido %></td>
+        <!-- <td><%= link_to 'Edit', edit_pedido_path(pedido) %></td>
+        <td><%= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  monto_total: 1
+  fecha: 2014-11-27 19:14:19
+  monto_iva: 1
+  tipo: MyString
+  proveedor_id: 
+
+two:
+  monto_total: 1
+  fecha: 2014-11-27 19:14:19
+  monto_iva: 1
+  tipo: MyString
+  proveedor_id: 

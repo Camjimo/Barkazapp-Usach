@@ -1,0 +1,41 @@
+<h1>Listing lotes</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Lote', new_lote_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Stock original</th>
+      <th>Stock actual bodega</th>
+      <th>Stock actual cocina</th>
+      <th>Stock actual bar</th>
+      <th>Precio compra</th>
+      <th>Material</th>
+      <th>Unidad medida</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lotes.each do |lote| %>
+      <tr>
+                    <td><%= lote.stock_original %></td>
+                    <td><%= lote.stock_actual_bodega %></td>
+                    <td><%= lote.stock_actual_cocina %></td>
+                    <td><%= lote.stock_actual_bar %></td>
+                    <td><%= lote.precio_compra %></td>
+                    <td><%= lote.material.name %></td>
+                    <td><%= lote.unidad_medida.name %></td>
+                <td><%= link_to 'Detail', lote %></td>
+        <!-- <td><%= link_to 'Edit', edit_lote_path(lote) %></td>
+        <td><%= link_to 'Destroy', lote, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

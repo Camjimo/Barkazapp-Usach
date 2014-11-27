@@ -1,0 +1,28 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Fecha:</th>
+		  <td><%= @inventario.fecha %></td>
+		</tr>
+			<tr>
+		  <th>Hora:</th>
+		  <td><%= @inventario.hora %></td>
+		</tr>
+			<tr>
+		  <th>Tipo:</th>
+		  <td><%= @inventario.tipo %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_inventario_path(@inventario), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @inventario, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', inventarios_path, :class => "btn btn-link" %>

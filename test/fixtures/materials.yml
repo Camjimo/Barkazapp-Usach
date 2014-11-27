@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  pmp: 1
+  cantidad: 1
+  tipo_material_id: 
+  unidad_medida_id: 
+  unidad_medida_id: 
+
+two:
+  nombre: MyString
+  pmp: 1
+  cantidad: 1
+  tipo_material_id: 
+  unidad_medida_id: 
+  unidad_medida_id: 

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cantidad_material: 1
+  precio_material: 1
+  material_id: 
+  unidad_medida_id: 
+  proveedor_id: 
+
+two:
+  cantidad_material: 1
+  precio_material: 1
+  material_id: 
+  unidad_medida_id: 
+  proveedor_id: 

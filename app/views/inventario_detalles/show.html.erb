@@ -1,0 +1,28 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Stcok local material:</th>
+		  <td><%= @inventario_detalle.stcok_local_material %></td>
+		</tr>
+			<tr>
+			<th>Material:</th>
+			<td><%= @inventario_detalle.material.name %></td>
+		</tr>
+			<tr>
+			<th>Inventario:</th>
+			<td><%= @inventario_detalle.inventario.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_inventario_detalle_path(@inventario_detalle), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @inventario_detalle, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', inventario_detalles_path, :class => "btn btn-link" %>

@@ -1,0 +1,28 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Precio:</th>
+		  <td><%= @historial_costo_producto.precio %></td>
+		</tr>
+			<tr>
+		  <th>Fecha:</th>
+		  <td><%= @historial_costo_producto.fecha %></td>
+		</tr>
+			<tr>
+			<th>Producto:</th>
+			<td><%= @historial_costo_producto.producto.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_historial_costo_producto_path(@historial_costo_producto), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @historial_costo_producto, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', historial_costo_productos_path, :class => "btn btn-link" %>

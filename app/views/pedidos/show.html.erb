@@ -1,0 +1,40 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Fecha:</th>
+		  <td><%= @pedido.fecha %></td>
+		</tr>
+			<tr>
+		  <th>Monto total:</th>
+		  <td><%= @pedido.monto_total %></td>
+		</tr>
+			<tr>
+			<th>Mesa:</th>
+			<td><%= @pedido.mesa.name %></td>
+		</tr>
+			<tr>
+			<th>Estado pedido:</th>
+			<td><%= @pedido.estado_pedido.name %></td>
+		</tr>
+			<tr>
+			<th>Tipo pago:</th>
+			<td><%= @pedido.tipo_pago.name %></td>
+		</tr>
+			<tr>
+			<th>Usuario:</th>
+			<td><%= @pedido.usuario.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_pedido_path(@pedido), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @pedido, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', pedidos_path, :class => "btn btn-link" %>

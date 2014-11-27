@@ -21,5 +21,11 @@ class ApplicationController < ActionController::Base
   # 		}
   # 	end
   # end
+  def authenticate_user
+    if current_user.nil?
+      flash[:error] = 'You must be signed in to view that page.'
+      redirect_to new_user_session_path
+    end
+  end
 
 end

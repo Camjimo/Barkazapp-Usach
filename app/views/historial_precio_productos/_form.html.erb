@@ -1,0 +1,29 @@
+<%= form_for(@historial_precio_producto) do |f| %>
+<% if @historial_precio_producto.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@historial_precio_producto.errors.count, "error") %> prohibited this historial_precio_producto from being saved:</h2>
+
+    <ul>
+        <% @historial_precio_producto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+                <%= f.label :precio %>
+            <%= f.number_field :precio, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :fecha %>
+            <%= f.date_select :fecha, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :producto_id %>
+            <%= f.collection_select :producto_id, Producto.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="actions">
+    <%= f.submit :class => "btn btn-success" %>
+</div>
+<% end %>

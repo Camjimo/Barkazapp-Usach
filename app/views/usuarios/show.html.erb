@@ -1,0 +1,40 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Nombre:</th>
+		  <td><%= @usuario.nombre %></td>
+		</tr>
+			<tr>
+		  <th>Apellido:</th>
+		  <td><%= @usuario.apellido %></td>
+		</tr>
+			<tr>
+		  <th>Pinpass:</th>
+		  <td><%= @usuario.pinpass %></td>
+		</tr>
+			<tr>
+		  <th>Rut:</th>
+		  <td><%= @usuario.rut %></td>
+		</tr>
+			<tr>
+		  <th>Estado:</th>
+		  <td><%= @usuario.estado %></td>
+		</tr>
+			<tr>
+			<th>Tipo usuario:</th>
+			<td><%= @usuario.tipo_usuario.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_usuario_path(@usuario), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @usuario, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', usuarios_path, :class => "btn btn-link" %>

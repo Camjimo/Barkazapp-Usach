@@ -1,0 +1,29 @@
+<h1>Listing tipo_contenedors</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Tipo contenedor', new_tipo_contenedor_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tipo_contenedors.each do |tipo_contenedor| %>
+      <tr>
+                    <td><%= tipo_contenedor.nombre %></td>
+                <td><%= link_to 'Detail', tipo_contenedor %></td>
+        <!-- <td><%= link_to 'Edit', edit_tipo_contenedor_path(tipo_contenedor) %></td>
+        <td><%= link_to 'Destroy', tipo_contenedor, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

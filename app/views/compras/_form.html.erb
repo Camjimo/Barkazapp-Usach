@@ -1,0 +1,37 @@
+<%= form_for(@compra) do |f| %>
+<% if @compra.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(@compra.errors.count, "error") %> prohibited this compra from being saved:</h2>
+
+    <ul>
+        <% @compra.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group">
+                <%= f.label :monto_total %>
+            <%= f.number_field :monto_total, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :fecha %>
+            <%= f.datetime_select :fecha, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :monto_iva %>
+            <%= f.number_field :monto_iva, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :tipo %>
+            <%= f.text_field :tipo, :class => "form-control" %>
+    </div>
+<div class="form-group">
+                <%= f.label :proveedor_id %>
+            <%= f.collection_select :proveedor_id, Proveedor.all, :id, :name, prompt: true, :class => 'form-control'  %>
+    </div>
+<div class="actions">
+    <%= f.submit :class => "btn btn-success" %>
+</div>
+<% end %>

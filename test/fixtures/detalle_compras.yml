@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cantidad_compra: 1
+  precio_unidad_compra: 1
+  total_compra: 1
+  fecha_vencimiento_lote: 2014-11-27
+  material_id: 
+  tipo_contenedor_id: 
+  compra_id: 
+
+two:
+  cantidad_compra: 1
+  precio_unidad_compra: 1
+  total_compra: 1
+  fecha_vencimiento_lote: 2014-11-27
+  material_id: 
+  tipo_contenedor_id: 
+  compra_id: 

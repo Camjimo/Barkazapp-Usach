@@ -1,0 +1,33 @@
+<h1>Listing equivalencia</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Equivalencium', new_equivalencium_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Cantidad</th>
+      <th>Unidad medida</th>
+      <th>Tipo contenedor</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @equivalencia.each do |equivalencium| %>
+      <tr>
+                    <td><%= equivalencium.cantidad %></td>
+                    <td><%= equivalencium.unidad_medida.name %></td>
+                    <td><%= equivalencium.tipo_contenedor.name %></td>
+                <td><%= link_to 'Detail', equivalencium %></td>
+        <!-- <td><%= link_to 'Edit', edit_equivalencium_path(equivalencium) %></td>
+        <td><%= link_to 'Destroy', equivalencium, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

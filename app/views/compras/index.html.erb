@@ -1,0 +1,37 @@
+<h1>Listing compras</h1>
+<p></p>
+<hr>
+
+<%= link_to 'New Compra', new_compra_path, :class => "btn btn-primary float-right" %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Monto total</th>
+      <th>Fecha</th>
+      <th>Monto iva</th>
+      <th>Tipo</th>
+      <th>Proveedor</th>
+      <th></th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @compras.each do |compra| %>
+      <tr>
+                    <td><%= compra.monto_total %></td>
+                    <td><%= compra.fecha %></td>
+                    <td><%= compra.monto_iva %></td>
+                    <td><%= compra.tipo %></td>
+                    <td><%= compra.proveedor.name %></td>
+                <td><%= link_to 'Detail', compra %></td>
+        <!-- <td><%= link_to 'Edit', edit_compra_path(compra) %></td>
+        <td><%= link_to 'Destroy', compra, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
