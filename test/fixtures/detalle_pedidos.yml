@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cantidad_venta: 1
+  precio_venta: 1
+  pedido_id: 
+  producto_id: 
+
+two:
+  cantidad_venta: 1
+  precio_venta: 1
+  pedido_id: 
+  producto_id: 

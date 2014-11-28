@@ -1,31 +1,33 @@
-<h1>Listing categories</h1>
-<p></p>
-<hr>
+<div style="background-color:white;height:100%;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:39px">
+  <h1>Listing categories</h1>
+  <p></p>
+  <hr>
 
-<%= link_to 'New Category', new_category_path, :class => "btn btn-primary float-right" %>
+  <%= link_to 'New Category', new_category_path, :class => "btn btn-primary float-right" %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th></th>
-      <!-- <th></th>
-      <th></th> -->
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
+  <table class="table table-striped" style="background-color:#FAFAFA">
+    <thead>
       <tr>
-                    <td><%= category.name %></td>
-                    <td><%= category.description %></td>
-                <td><%= link_to 'Detail', category %></td>
-        <!-- <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <th>Name</th>
+        <th>Description</th>
+        <th></th>
+        <!-- <th></th>
+        <th></th> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+                      <td><%= category.name %></td>
+                      <td><%= category.description %></td>
+                  <td><%= link_to 'Detail', category %></td>
+          <!-- <td><%= link_to 'Edit', edit_category_path(category) %></td>
+          <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+</div>

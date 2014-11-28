@@ -7,8 +7,6 @@ class CreateUsuarios < ActiveRecord::Migration
       t.string :rut, limit: 11
       t.string :estado, limit: 15
       t.references :tipo_usuario, index: true
-
-      t.timestamps
     end
   end
 end

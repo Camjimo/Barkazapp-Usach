@@ -4,6 +4,7 @@ class Pedido < ActiveRecord::Base
 	include Exportable
 
 	  		belongs_to :mesa
+	  		validates :mesa_id, presence: true, inclusion: {in: %w(small medium large), message: "%{value} es un campo obligatorio."}
 	  		belongs_to :estado_pedido
 	  		belongs_to :tipo_pago
 	  		belongs_to :usuario

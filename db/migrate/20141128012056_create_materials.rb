@@ -7,8 +7,6 @@ class CreateMaterials < ActiveRecord::Migration
       t.references :tipo_material, index: true
       t.references :unidad_medida, index: true
       t.references :unidad_medida, index: true
-
-      t.timestamps
     end
   end
 end

@@ -4,8 +4,6 @@ class CreateHistorialCostoProductos < ActiveRecord::Migration
       t.integer :precio
       t.date :fecha
       t.references :producto, index: true
-
-      t.timestamps
     end
   end
 end

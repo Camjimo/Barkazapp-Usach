@@ -1,0 +1,32 @@
+<% if notice -%>
+<p id="notice"><%= notice %></p>
+<% end -%>
+
+<h1></h1>
+<p></p>
+<hr>
+
+<table class="table table-bordered">
+	<tbody>
+			<tr>
+		  <th>Cantidad venta:</th>
+		  <td><%= @detalle_pedido.cantidad_venta %></td>
+		</tr>
+			<tr>
+		  <th>Precio venta:</th>
+		  <td><%= @detalle_pedido.precio_venta %></td>
+		</tr>
+			<tr>
+			<th>Pedido:</th>
+			<td><%= @detalle_pedido.pedido.name %></td>
+		</tr>
+			<tr>
+			<th>Producto:</th>
+			<td><%= @detalle_pedido.producto.name %></td>
+		</tr>
+		</tbody>
+</table>
+
+<%= link_to 'Edit', edit_detalle_pedido_path(@detalle_pedido), :class => "btn btn-default" %>
+<%= link_to 'Destroy', @detalle_pedido, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+<%= link_to 'Back', detalle_pedidos_path, :class => "btn btn-link" %>

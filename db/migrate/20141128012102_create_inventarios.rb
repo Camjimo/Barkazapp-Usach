@@ -4,8 +4,6 @@ class CreateInventarios < ActiveRecord::Migration
       t.date :fecha
       t.time :hora
       t.string :tipo, limit: 10
-
-      t.timestamps
     end
   end
 end

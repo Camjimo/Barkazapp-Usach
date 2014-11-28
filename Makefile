@@ -22,6 +22,7 @@ scaffold:
 	rails g scaffold Pedido \
 		fecha:datetime \
 		monto_total:integer \
+		nuevo:boolean \
 		mesa:references \
 		estado_pedido:references \
 		tipo_pago:references \
@@ -130,6 +131,12 @@ scaffold:
 		unidad_medida:references \
 		tipo_contenedor:references;
 
+	rails g scaffold Detalle_pedido \
+		cantidad_venta:integer \
+		precio_venta:integer \
+		pedido:references \
+		producto:references;
+
 destroy:
 	# Your destroy here
 	rails d scaffold Product;
@@ -156,12 +163,17 @@ destroy:
 	rails d scaffold Detalle_compra;
 	rails d scaffold Catalogo_material;
 	rails d scaffold Equivalencia;
+	rails d scaffold Detalle_pedido;
 
-migrate:
+create:
 	rake db:drop:all
 	rake db:create
+
+migrate:	
 	rake db:migrate
 	rake db:seed
 
-redo: destroy scaffold migrate
+redoc: destroy scaffold create
+
+redom: migrate 
 	rails s

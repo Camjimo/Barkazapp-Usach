@@ -18,7 +18,7 @@ class PedidosControllerTest < ActionController::TestCase
 
   test "should create pedido" do
     assert_difference('Pedido.count') do
-      post :create, pedido: { estado_pedido_id: @pedido.estado_pedido_id, fecha: @pedido.fecha, mesa_id: @pedido.mesa_id, monto_total: @pedido.monto_total, tipo_pago_id: @pedido.tipo_pago_id, usuario_id: @pedido.usuario_id }
+      post :create, pedido: { estado_pedido_id: @pedido.estado_pedido_id, fecha: @pedido.fecha, mesa_id: @pedido.mesa_id, monto_total: @pedido.monto_total, nuevo: @pedido.nuevo, tipo_pago_id: @pedido.tipo_pago_id, usuario_id: @pedido.usuario_id }
     end
 
     assert_redirected_to pedido_path(assigns(:pedido))
@@ -35,7 +35,7 @@ class PedidosControllerTest < ActionController::TestCase
   end
 
   test "should update pedido" do
-    patch :update, id: @pedido, pedido: { estado_pedido_id: @pedido.estado_pedido_id, fecha: @pedido.fecha, mesa_id: @pedido.mesa_id, monto_total: @pedido.monto_total, tipo_pago_id: @pedido.tipo_pago_id, usuario_id: @pedido.usuario_id }
+    patch :update, id: @pedido, pedido: { estado_pedido_id: @pedido.estado_pedido_id, fecha: @pedido.fecha, mesa_id: @pedido.mesa_id, monto_total: @pedido.monto_total, nuevo: @pedido.nuevo, tipo_pago_id: @pedido.tipo_pago_id, usuario_id: @pedido.usuario_id }
     assert_redirected_to pedido_path(assigns(:pedido))
   end
 

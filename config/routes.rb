@@ -1,4 +1,8 @@
 Tut1::Application.routes.draw do
+  resources :pedidos
+
+  resources :detalle_pedidos
+
   resources :equivalencia
 
   resources :catalogo_materials
@@ -34,8 +38,6 @@ Tut1::Application.routes.draw do
   resources :usuarios
 
   resources :tipo_usuarios
-
-  resources :pedidos
 
   resources :tipo_pagos
 

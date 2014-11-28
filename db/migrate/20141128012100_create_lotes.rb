@@ -8,8 +8,6 @@ class CreateLotes < ActiveRecord::Migration
       t.integer :precio_compra
       t.references :material, index: true
       t.references :unidad_medida, index: true
-
-      t.timestamps
     end
   end
 end

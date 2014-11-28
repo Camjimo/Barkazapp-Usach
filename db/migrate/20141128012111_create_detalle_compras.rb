@@ -8,8 +8,6 @@ class CreateDetalleCompras < ActiveRecord::Migration
       t.references :material, index: true
       t.references :tipo_contenedor, index: true
       t.references :compra, index: true
-
-      t.timestamps
     end
   end
 end

@@ -4,8 +4,6 @@ class CreateEquivalencia < ActiveRecord::Migration
       t.integer :cantidad
       t.references :unidad_medida, index: true
       t.references :tipo_contenedor, index: true
-
-      t.timestamps
     end
   end
 end

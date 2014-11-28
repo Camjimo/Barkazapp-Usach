@@ -4,8 +4,6 @@ class CreateReceta < ActiveRecord::Migration
       t.integer :cantidad_compuesto
       t.references :material, index: true
       t.references :producto, index: true
-
-      t.timestamps
     end
   end
 end

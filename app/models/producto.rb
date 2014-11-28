@@ -3,7 +3,6 @@ class Producto < ActiveRecord::Base
 	include Importable
 	include Exportable
 
-		
 	# Validations
 			# validates :nombre, <validations>
 			# validates :tipo, <validations>

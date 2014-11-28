@@ -6,8 +6,6 @@ class CreateCatalogoMaterials < ActiveRecord::Migration
       t.references :material, index: true
       t.references :unidad_medida, index: true
       t.references :proveedor, index: true
-
-      t.timestamps
     end
   end
 end

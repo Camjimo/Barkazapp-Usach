@@ -1,39 +1,39 @@
-<h1>Listing pedidos</h1>
-<p></p>
-<hr>
+<div style="background-color:white;height:502px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:39px">
+  <h2 style="color:#660000"><strong>Comandas</strong></h2>
+  <br/>
+  <p>A contnuación se muestran las comandas registradas. Para agregar una nueva comanda, presione el botón "Nuevo" y para editarla sleccione "Ver Detalle".</p>
+  <hr>
 
-<%= link_to 'New Pedido', new_pedido_path, :class => "btn btn-primary float-right" %>
+  <%= link_to 'Nuevo', new_pedido_path, :class => "btn btn-primary float-left" %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Fecha</th>
-      <th>Monto total</th>
-      <th>Mesa</th>
-      <th>Estado pedido</th>
-      <th>Tipo pago</th>
-      <th>Usuario</th>
-      <th></th>
-      <!-- <th></th>
-      <th></th> -->
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pedidos.each do |pedido| %>
-      <tr>
-                    <td><%= pedido.fecha %></td>
-                    <td><%= pedido.monto_total %></td>
-                    <td><%= pedido.mesa.name %></td>
-                    <td><%= pedido.estado_pedido.name %></td>
-                    <td><%= pedido.tipo_pago.name %></td>
-                    <td><%= pedido.usuario.name %></td>
-                <td><%= link_to 'Detail', pedido %></td>
-        <!-- <td><%= link_to 'Edit', edit_pedido_path(pedido) %></td>
-        <td><%= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+  <table class="table table-striped">
+    <thead>
+      <tr class="active">
+        <th>Ver Detalle</th>
+        <th>Fecha</th>
+        <th>Mesa</th>
+        <th>Estado pedido</th>
+        <th>Usuario</th>
+        <!-- <th></th>
+        <th></th> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @pedidos.each do |pedido| %>
+        <tr>
+                      <td><%= link_to 'Ver Detalle', pedido %></td>
+                      <td><%= pedido.fecha %></td>
+                      <td><%= pedido.mesa.name %></td>
+                      <td><%= pedido.estado_pedido.name %></td>
+                      <td><%= pedido.usuario.name %></td>
+                  
+          <!-- <td><%= link_to 'Edit', edit_pedido_path(pedido) %></td>
+          <td><%= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+</div>

@@ -4,8 +4,6 @@ class CreateProveedors < ActiveRecord::Migration
       t.string :nombre, limit: 50
       t.integer :telefono
       t.string :correo, limit: 100
-
-      t.timestamps
     end
   end
 end

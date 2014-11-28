@@ -1,7 +1,7 @@
 <%= form_for(@pedido) do |f| %>
 <% if @pedido.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+    <h4>Hubo <%= pluralize(@pedido.errors.count, "error") %> error(es) en el registro:</h4>
 
     <ul>
         <% @pedido.errors.full_messages.each do |msg| %>
@@ -11,31 +11,46 @@
 </div>
 <% end %>
 
-<div class="form-group">
-                <%= f.label :fecha %>
-            <%= f.datetime_select :fecha, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :monto_total %>
-            <%= f.number_field :monto_total, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :mesa_id %>
-            <%= f.collection_select :mesa_id, Mesa.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
-<div class="form-group">
-                <%= f.label :estado_pedido_id %>
-            <%= f.collection_select :estado_pedido_id, EstadoPedido.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
-<div class="form-group">
-                <%= f.label :tipo_pago_id %>
-            <%= f.collection_select :tipo_pago_id, TipoPago.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
-<div class="form-group">
-                <%= f.label :usuario_id %>
-            <%= f.collection_select :usuario_id, Usuario.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
-<div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
-</div>
+<table style="margin-left:150px">
+    <tr>
+        <td width="150px">
+            <%= label_tag "Responsable:" %>
+        </td>
+        <td>
+            <%= current_user.name %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            &nbsp
+        </td>
+    </tr>
+    <tr>
+        <div class="form-group">
+        <td>
+            <%= f.label "#{:mesa}:" %>
+        </td>
+        <td>
+            <%= f.collection_select :mesa_id, Mesa.all, :id, :id, prompt: "Seleccione mesa", :class => 'form-control'  %>
+        </td>
+        </div>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+<table style="margin-left:450px">
+    <tr>
+        <td>
+            <div class="actions">
+                <%= f.submit "Siguiente", :class => "btn btn-primary"%>
+            </div>
+        </td>
+        <td>
+            <%= link_to 'Cancelar', pedidos_path, :class => "btn btn-primary" %>
+        </td>
+    </tr>
+</table>
+
 <% end %>

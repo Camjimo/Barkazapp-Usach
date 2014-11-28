@@ -6,8 +6,6 @@ class CreateProductos < ActiveRecord::Migration
       t.integer :precio
       t.boolean :actual
       t.integer :costo
-
-      t.timestamps
     end
   end
 end
