@@ -1,40 +1,62 @@
-<% if notice -%>
-<p id="notice"><%= notice %></p>
-<% end -%>
+<div style="background-color:white;min-height:502px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:39px">
 
-<h1></h1>
-<p></p>
-<hr>
+<script type="text/javascript" src="/js/vendor/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/js/vendor/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="/js/vendor/dataTables.bootstrap.js"></script>
 
-<table class="table table-bordered">
-	<tbody>
-			<tr>
-		  <th>Fecha:</th>
-		  <td><%= @pedido.fecha %></td>
-		</tr>
-			<tr>
-		  <th>Monto total:</th>
-		  <td><%= @pedido.monto_total %></td>
-		</tr>
-			<tr>
-			<th>Mesa:</th>
-			<td><%= @pedido.mesa.name %></td>
-		</tr>
-			<tr>
-			<th>Estado pedido:</th>
-			<td><%= @pedido.estado_pedido.name %></td>
-		</tr>
-			<tr>
-			<th>Tipo pago:</th>
-			<td><%= @pedido.tipo_pago.name %></td>
-		</tr>
-			<tr>
-			<th>Usuario:</th>
-			<td><%= @pedido.usuario.name %></td>
-		</tr>
-		</tbody>
-</table>
+	<% if notice -%>
+	<p id="notice"><%= notice %></p>
+	<% end -%>
 
-<%= link_to 'Edit', edit_pedido_path(@pedido), :class => "btn btn-default" %>
-<%= link_to 'Destroy', @pedido, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
-<%= link_to 'Back', pedidos_path, :class => "btn btn-link" %>
+	<h2 style="COLOR:#660000"><strong>Detalle Comanda</strong></h2>
+	<br />
+	<p>Por favor, agregue los productos solicitados en la comanda.</p>
+	<br />
+	<table>
+		<tr>
+			<td width="100px">
+				<%= label_tag "Responsable:" %>
+			</td>
+			<td>
+				<%= @pedido.usuario.nombre %>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<%= label_tag "Mesa:" %>
+			</td>
+			<td>
+				<%= @pedido.mesa_id %>
+			</td>
+		</tr>
+	</table>
+	<br/>
+
+	<%= link_to 'Agregar', { controller: "detalle_pedidos", action: "new", id: @pedido }, :class => "btn btn-info" %>
+	<table class="table table-striped" id="tabla_detalle_pedido">
+    <thead>
+      <tr class="active">
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @detalle_pedidos.each do |detalle_pedido| %>
+        <tr>
+                      <!--<td><%= link_to 'Ver Detalle', detalle_pedido %></td>-->
+                      <td><%= detalle_pedido.producto.nombre %></td>
+                      <td><%= detalle_pedido.cantidad_venta %></td>
+                      <td><%= detalle_pedido.precio_venta %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+	<!--<%= link_to 'Guardar', pedidos_path, :class => "btn btn-primary", :style => "margin-left:700px" %>-->
+	<%= link_to 'Guardar' , { controller: "aux", action: "guardar", id: @pedido }, :class => "btn btn-primary", :style => "margin-left:690px" %>
+	<!--<%= link_to 'Cancelar', pedidos_path, :class => "btn btn-primary" %>-->
+	<!--<%= link_to 'Destroy', @pedido, method: :delete, data: { confirm: "¿Está seguro que desea salir?" }, :class => "btn btn-danger" %>-->
+	<%= link_to_if(!@pedido.nuevo,'Cancelar',{ controller: "aux", action: "cancelar", id: @pedido }, data: { confirm: "¿Está seguro que desea salir?" },:class => "btn btn-primary") do link_to('Cancelar', @pedido, method: :delete, data: { confirm: "¿Está seguro que desea salir?" }, :class => "btn btn-primary") end %>
+</div>

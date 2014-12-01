@@ -7,7 +7,8 @@ class DetallePedido < ActiveRecord::Base
 	  		belongs_to :producto
 		
 	# Validations
-			# validates :cantidad_venta, <validations>
+			  validates :producto_id, :cantidad_venta, :presence => {:message => '%{value} es un campo obligatorio.'}
+			  validates :cantidad_venta, :numericality => {greater_than: 0, :message => " debe ser mayor a 0."}
 			# validates :precio_venta, <validations>
 			# validates :pedido, <validations>
 			# validates :producto, <validations>

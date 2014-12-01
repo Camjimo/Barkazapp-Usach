@@ -9,6 +9,7 @@ class PedidosController < ApplicationController
   end
 
   def show
+    @detalle_pedidos = DetallePedido.all.where(["pedido_id = ?",@pedido.id])
     respond_with(@pedido)
   end
 
@@ -22,6 +23,9 @@ class PedidosController < ApplicationController
 
   def create
     @pedido = Pedido.new(pedido_params)
+    @pedido.update usuario_id: current_user.id
+    @pedido.update estado_pedido_id: 1
+    @pedido.update fecha: Time.now - 3.hour
     @pedido.save
     respond_with(@pedido)
   end
@@ -32,6 +36,7 @@ class PedidosController < ApplicationController
   end
 
   def destroy
+    DetallePedido.where(["pedido_id=?",@pedido.id]).destroy_all
     @pedido.destroy
     respond_with(@pedido)
   end

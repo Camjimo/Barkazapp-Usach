@@ -1,19 +1,20 @@
-<div style="background-color:white;height:502px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:39px">
+<div style="background-color:white;min-height:494px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:39px">
   <h2 style="color:#660000"><strong>Comandas</strong></h2>
   <br/>
   <p>A contnuación se muestran las comandas registradas. Para agregar una nueva comanda, presione el botón "Nuevo" y para editarla sleccione "Ver Detalle".</p>
   <hr>
 
-  <%= link_to 'Nuevo', new_pedido_path, :class => "btn btn-primary float-left" %>
+  <%= link_to 'Nuevo', new_pedido_path, :class => "btn btn-info float-left" %>
 
   <table class="table table-striped">
     <thead>
       <tr class="active">
         <th>Ver Detalle</th>
+        <th>Hora</th>
         <th>Fecha</th>
         <th>Mesa</th>
         <th>Estado pedido</th>
-        <th>Usuario</th>
+        <th>Responsable</th>
         <!-- <th></th>
         <th></th> -->
       </tr>
@@ -23,10 +24,11 @@
       <% @pedidos.each do |pedido| %>
         <tr>
                       <td><%= link_to 'Ver Detalle', pedido %></td>
-                      <td><%= pedido.fecha %></td>
-                      <td><%= pedido.mesa.name %></td>
-                      <td><%= pedido.estado_pedido.name %></td>
-                      <td><%= pedido.usuario.name %></td>
+                      <td><%= pedido.fecha.strftime('%X') %></td>
+                      <td><%= pedido.fecha.strftime('%x') %></td>
+                      <td><%= pedido.mesa.id %></td>
+                      <td><%= pedido.estado_pedido.nombre %></td>
+                      <td><%= pedido.usuario.nombre %></td>
                   
           <!-- <td><%= link_to 'Edit', edit_pedido_path(pedido) %></td>
           <td><%= link_to 'Destroy', pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->

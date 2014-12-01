@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141128135726) do
   create_table "detalle_pedidos", force: true do |t|
     t.integer "cantidad_venta"
     t.integer "precio_venta"
+    t.boolean "nuevo"
     t.integer "pedido_id"
     t.integer "producto_id"
   end
