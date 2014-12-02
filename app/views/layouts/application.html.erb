@@ -8,17 +8,24 @@
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	<%= csrf_meta_tags %>
+	<script type="text/javascript">
+
+		$(document).ready( function() {
+		    $('#tabla_detalle_pedido').dataTable();
+		});
+
+	</script>
 </head>
 <body>
 	<div id="wrapper">
 		<div id="header">
-			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:#660000;height:100px">
+			<nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:#660000;height:120px">
 			<div class="container">
 				<div style="position:absolute">
-					<img src="/img/Barkazapp.png" style="height:90px;width:90px;background-color:white;margin-top:5px">
+					<img src="/img/Barkazapp.png" style="height:90px;width:90px;background-color:white;margin-top:13px">
 				</div>
 				<div class="container-fluid">
-					<h1 class="text-center" style="color:white"><strong>Sistema de Administración - Barkaza Restaurante</strong></h1>
+					<h1 class="text-center" style="color:white"><strong>Sistema de Administración<p></p>Barkaza Restaurante</strong></h1>
 					<!--<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 							<span class="sr-only">Toggle navigation</span>
@@ -57,7 +64,7 @@
 						</ul>
 					</div>-->
 				</div>
-			</div>			
+			</div>	
 			</nav>
 		</div>
 		<div id="header-ghost" style="height:100px"></div>
@@ -92,9 +99,13 @@
     <script src="/js/bootstrap/scrollspy.js"></script>
     <script src="/js/bootstrap/tab.js"></script>
     <script src="/js/bootstrap/affix.js"></script>
+    <script type="text/javascript" src="/js/vendor/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="/js/vendor/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="/js/vendor/dataTables.bootstrap.js"></script>
 
     <script type="text/javascript">
-    	$('.dropdown-toggle').dropdown()  
+    	$('.dropdown-toggle').dropdown();
+    	$('#tabla_detalle_pedido').dataTable();
     </script>
 </body>
 </html>

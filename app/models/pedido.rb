@@ -28,5 +28,6 @@ class Pedido < ActiveRecord::Base
 		scope :estado_pedido, ->(estado_pedido_name) { where("estado_pedido.name like ?", "%#{estado_pedido_name}%") }
 		scope :tipo_pago, ->(tipo_pago_name) { where("tipo_pago.name like ?", "%#{tipo_pago_name}%") }
 		scope :usuario, ->(usuario_name) { where("usuario.name like ?", "%#{usuario_name}%") }
+
 	
 end

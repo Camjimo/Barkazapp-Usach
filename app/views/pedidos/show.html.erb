@@ -1,13 +1,5 @@
 <div style="background-color:white;min-height:502px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:39px">
 
-<script type="text/javascript" src="/js/vendor/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="/js/vendor/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="/js/vendor/dataTables.bootstrap.js"></script>
-
-	<% if notice -%>
-	<p id="notice"><%= notice %></p>
-	<% end -%>
-
 	<h2 style="COLOR:#660000"><strong>Detalle Comanda</strong></h2>
 	<br />
 	<p>Por favor, agregue los productos solicitados en la comanda.</p>
@@ -53,10 +45,16 @@
       <% end %>
     </tbody>
   </table>
-
-	<!--<%= link_to 'Guardar', pedidos_path, :class => "btn btn-primary", :style => "margin-left:700px" %>-->
-	<%= link_to 'Guardar' , { controller: "aux", action: "guardar", id: @pedido }, :class => "btn btn-primary", :style => "margin-left:690px" %>
+  	<table width="100%">
+  	<tr>
+  	<td align="right">
+  	<% if DetallePedido.where("pedido_id=?",@pedido.id).count>0 %>
+	<%= link_to 'Guardar', { controller: "aux", action: "guardar", id: @pedido }, :class => "btn btn-primary" %>
+	<% end %>
 	<!--<%= link_to 'Cancelar', pedidos_path, :class => "btn btn-primary" %>-->
 	<!--<%= link_to 'Destroy', @pedido, method: :delete, data: { confirm: "¿Está seguro que desea salir?" }, :class => "btn btn-danger" %>-->
 	<%= link_to_if(!@pedido.nuevo,'Cancelar',{ controller: "aux", action: "cancelar", id: @pedido }, data: { confirm: "¿Está seguro que desea salir?" },:class => "btn btn-primary") do link_to('Cancelar', @pedido, method: :delete, data: { confirm: "¿Está seguro que desea salir?" }, :class => "btn btn-primary") end %>
+	</td>
+	</tr>
+	</table>
 </div>
