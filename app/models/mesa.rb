@@ -10,6 +10,6 @@ class Mesa < ActiveRecord::Base
 	# Scopes (used for search form)
 	#   To search by full text use { where("attribute like ?", "%#{attribute}%") }
 	#   To search by string use { where attribute: attribute }
-		scope :ocupada, -> (ocupada) { where ocupada: ocupada }
+		scope :ocupada, ->(ocupada) { where ocupada: ocupada }
 	
 end
