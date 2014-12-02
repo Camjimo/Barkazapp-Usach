@@ -135,6 +135,7 @@ scaffold:
 		cantidad_venta:integer \
 		precio_venta:integer \
 		pedido:references \
+		nuevo:boolean \
 		producto:references;
 
 destroy:

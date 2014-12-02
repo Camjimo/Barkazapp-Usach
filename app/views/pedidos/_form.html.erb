@@ -1,13 +1,19 @@
 <%= form_for(@pedido) do |f| %>
 <% if @pedido.errors.any? %>
 <div id="error_explanation">
-    <h4>Hubo <%= pluralize(@pedido.errors.count, "error") %> error(es) en el registro:</h4>
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin-left:150px">
+<tr>
+<td>
+    <h4>Hubo <%= pluralize(@pedido.errors.count, "") %>error(es) en el registro:</h4>
 
     <ul>
         <% @pedido.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
     </ul>
+</td>
+</tr>
+</table>
 </div>
 <% end %>
 
@@ -28,7 +34,7 @@
     <tr>
         <div class="form-group">
         <td>
-            <%= f.label "#{:mesa}:" %>
+            <%= f.label :mesa_id %>
         </td>
         <td>
             <%= f.collection_select :mesa_id, Mesa.all, :id, :id, prompt: "Seleccione mesa", :class => 'form-control'  %>
