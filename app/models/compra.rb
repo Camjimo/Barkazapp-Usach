@@ -9,7 +9,7 @@ class Compra < ActiveRecord::Base
 			# validates :monto_total, <validations>
 			# validates :fecha, <validations>
 			# validates :monto_iva, <validations>
-			# validates :tipo, <validations>
+			 validates :tipo,:proveedor, :presence => {:message => '%{value} es un campo obligatorio.'}
 			# validates :proveedor, <validations>
 	
 	# Scopes (used for search form)

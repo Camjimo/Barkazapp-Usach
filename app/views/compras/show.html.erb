@@ -1,36 +1,37 @@
-<% if notice -%>
-<p id="notice"><%= notice %></p>
-<% end -%>
+<div style="background-color:white;min-height:492px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:39px">
 
-<h1></h1>
-<p></p>
-<hr>
+<h2 style="COLOR:#660000"><strong>Detalle Compra</strong></h2>
+	<br />
+	<p>Por favor, agregue los materiales que se encuentran en la compra.</p>
+	<br />
 
-<table class="table table-bordered">
-	<tbody>
-			<tr>
-		  <th>Monto total:</th>
-		  <td><%= @compra.monto_total %></td>
-		</tr>
-			<tr>
-		  <th>Fecha:</th>
-		  <td><%= @compra.fecha %></td>
-		</tr>
-			<tr>
-		  <th>Monto iva:</th>
-		  <td><%= @compra.monto_iva %></td>
-		</tr>
-			<tr>
-		  <th>Tipo:</th>
-		  <td><%= @compra.tipo %></td>
-		</tr>
-			<tr>
-			<th>Proveedor:</th>
-			<td><%= @compra.proveedor.name %></td>
-		</tr>
-		</tbody>
+<%= link_to 'Agregar', { controller: "detalle_compras", action: "new", id: @compra }, :class => "btn btn-primary" %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Material</th>
+      <th>Cantidad</th>
+      <th>Contenedor</th>
+      <th>Precio Unidad</th>
+      <!-- <th></th>
+      <th></th> -->
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @detalle_compras.each do |detalle_compra| %>
+      <tr>
+                    <td><%= detalle_compra.material.nombre %></td>
+                    <td><%= detalle_compra.cantidad_compra %></td>
+                    <td><%= detalle_compra.tipo_contenedor.nombre %></td>
+                    <td><%= detalle_compra.precio_unidad_compra %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= link_to 'Edit', edit_compra_path(@compra), :class => "btn btn-default" %>
 <%= link_to 'Destroy', @compra, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
 <%= link_to 'Back', compras_path, :class => "btn btn-link" %>
+
+</div>

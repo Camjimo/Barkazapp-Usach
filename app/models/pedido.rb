@@ -22,7 +22,7 @@ class Pedido < ActiveRecord::Base
 	# Scopes (used for search form)
 	#   To search by full text use { where("attribute like ?", "%#{attribute}%") }
 	#   To search by string use { where attribute: attribute }
-		scope :fecha, -> (fecha) { where fecha: fecha }
+		scope :fecha, ->(fecha) { where fecha: fecha }
 		scope :monto_total, -> (monto_total) { where monto_total: monto_total }
 		scope :mesa, -> (mesa_name) { where("mesa.name like ?", "%#{mesa_name}%") }
 		scope :estado_pedido, -> (estado_pedido_name) { where("estado_pedido.name like ?", "%#{estado_pedido_name}%") }
