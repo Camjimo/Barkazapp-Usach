@@ -1,31 +1,39 @@
-<h1>Listing unidad_medidas</h1>
+
+<h1><span class="label label-default">Unidades de medida</span></h1>
 <p></p>
 <hr>
 
-<%= link_to 'New Unidad medida', new_unidad_medida_path, :class => "btn btn-primary float-right" %>
+<div class="row">
+  <div class="col-md-8">
+        <table class="table table-hover">
+      <thead>
+        <tr>
+          <th bgcolor="#FFFFFF">Nombre</th>
+          <th bgcolor="#FFFFFF">Simbolo</th>
+          <th bgcolor="#FFFFFF"> </th>
+          <!-- <th></th>
+          <th></th> -->
+        </tr>
+      </thead>
+      <tbody BGCOLOR="white" >
+        <% @unidad_medidas.each do |unidad_medida| %>
+          <tr>
+                        <td><%= unidad_medida.nombre %></td>
+                        <td><%= unidad_medida.simbolo %></td>
+                    <td><%= link_to 'Editar', unidad_medida %></td>
+            <!-- <td><%= link_to 'Edit', edit_unidad_medida_path(unidad_medida) %></td>
+            <td><%= link_to 'Destroy', unidad_medida, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-4">
+    <%= link_to 'Ingresar nueva unidad de medida', new_unidad_medida_path, :class => "btn btn-primary float-right" %>
+  </div>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Simbolo</th>
-      <th></th>
-      <!-- <th></th>
-      <th></th> -->
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @unidad_medidas.each do |unidad_medida| %>
-      <tr>
-                    <td><%= unidad_medida.nombre %></td>
-                    <td><%= unidad_medida.simbolo %></td>
-                <td><%= link_to 'Detail', unidad_medida %></td>
-        <!-- <td><%= link_to 'Edit', edit_unidad_medida_path(unidad_medida) %></td>
-        <td><%= link_to 'Destroy', unidad_medida, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    
+    <p></p>
+  </div>
 <br>
