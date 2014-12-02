@@ -9,6 +9,7 @@ class ComprasController < ApplicationController
   end
 
   def show
+    @detalle_compras = DetalleCompra.where("compra_id=?",@compra.id)
     respond_with(@compra)
   end
 

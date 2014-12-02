@@ -29,16 +29,13 @@
     </div>
 <div class="form-group">
                 <%= f.label :material_id %>
-            <%= f.collection_select :material_id, Material.all, :id, :name, prompt: true, :class => 'form-control'  %>
+            <%= f.collection_select :material_id, Material.all, :id, :nombre, prompt: true, :class => 'form-control'  %>
     </div>
 <div class="form-group">
                 <%= f.label :tipo_contenedor_id %>
-            <%= f.collection_select :tipo_contenedor_id, TipoContenedor.all, :id, :name, prompt: true, :class => 'form-control'  %>
+            <%= f.collection_select :tipo_contenedor_id, TipoContenedor.all, :id, :nombre, prompt: true, :class => 'form-control'  %>
     </div>
-<div class="form-group">
-                <%= f.label :compra_id %>
-            <%= f.collection_select :compra_id, Compra.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
+
 <div class="actions">
     <%= f.submit :class => "btn btn-success" %>
 </div>

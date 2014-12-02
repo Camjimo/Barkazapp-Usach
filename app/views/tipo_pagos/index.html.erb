@@ -1,29 +1,31 @@
-<h1>Listing tipo_pagos</h1>
-<p></p>
-<hr>
+<div style="background-color:white;height:100%;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:39px">
+  <h1>Listing tipo_pagos</h1>
+  <p></p>
+  <hr>
 
-<%= link_to 'New Tipo pago', new_tipo_pago_path, :class => "btn btn-primary float-right" %>
+  <%= link_to 'New Tipo pago', new_tipo_pago_path, :class => "btn btn-primary float-right" %>
 
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th></th>
-      <!-- <th></th>
-      <th></th> -->
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tipo_pagos.each do |tipo_pago| %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-                    <td><%= tipo_pago.nombre %></td>
-                <td><%= link_to 'Detail', tipo_pago %></td>
-        <!-- <td><%= link_to 'Edit', edit_tipo_pago_path(tipo_pago) %></td>
-        <td><%= link_to 'Destroy', tipo_pago, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        <th>Nombre</th>
+        <th></th>
+        <!-- <th></th>
+        <th></th> -->
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @tipo_pagos.each do |tipo_pago| %>
+        <tr>
+                      <td><%= tipo_pago.nombre %></td>
+                  <td><%= link_to 'Detail', tipo_pago %></td>
+          <!-- <td><%= link_to 'Edit', edit_tipo_pago_path(tipo_pago) %></td>
+          <td><%= link_to 'Destroy', tipo_pago, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+</div>

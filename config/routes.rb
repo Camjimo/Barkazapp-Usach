@@ -1,4 +1,7 @@
 Tut1::Application.routes.draw do
+  get "errors/file_not_found"
+  get "errors/unprocessable"
+  get "errors/internal_server_error"
   resources :pedidos
 
   resources :detalle_pedidos
@@ -54,6 +57,7 @@ Tut1::Application.routes.draw do
   get "menu/index"
   get "aux/guardar"
   get "aux/cancelar"
+  get "mantenedores/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -108,4 +112,7 @@ Tut1::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  match '/404', to: 'errors#file_not_found', via: :all
+  match '/422', to: 'errors#unprocessable', via: :all
+  match '/500', to: 'errors#internal_server_error', via: :all
 end
