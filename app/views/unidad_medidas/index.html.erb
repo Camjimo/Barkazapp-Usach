@@ -1,39 +1,58 @@
-
-<h1><span class="label label-default">Unidades de medida</span></h1>
-<p></p>
-<hr>
-
-<div class="row">
-  <div class="col-md-8">
-        <table class="table table-hover">
-      <thead>
-        <tr>
-          <th bgcolor="#FFFFFF">Nombre</th>
-          <th bgcolor="#FFFFFF">Simbolo</th>
-          <th bgcolor="#FFFFFF"> </th>
-          <!-- <th></th>
-          <th></th> -->
-        </tr>
-      </thead>
-      <tbody BGCOLOR="white" >
-        <% @unidad_medidas.each do |unidad_medida| %>
-          <tr>
-                        <td><%= unidad_medida.nombre %></td>
-                        <td><%= unidad_medida.simbolo %></td>
+<div class="container-fluid">   
+  <div class="row">
+      <div class="col-md-1">
+        <div class="btn-group-vertical"style="padding-left:0%;padding-top:150%;width:260%";role="group" aria-label="...">
+        <%= link_to "Tipo de pago",tipo_pagos_path, :class => "btn btn-default" %></button>
+        <%= link_to "Estado pedido",estado_pedidos_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de contenedor",tipo_contenedors_path, :class => "btn btn-default" %></button>
+        <%= link_to "Unidad de medida",unidad_medidas_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de material",tipo_materials_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de usuario",tipo_usuarios_path, :class => "btn btn-default" %></button>
+      </div>    
+        
+        
+      </div
+    <div class="col-md-11">
+      <div style="background-color:white;min-height:600px;width:83%;float:right;padding-top:1%;padding-bottom:49%;padding-left:5%;padding-right:8%;margin-top:1%">
+        <h1><span class="text-center" style="color:#660000">Unidades de medida</span></h1>
+        <p></p>
+        <div class="row">
+          <div class="col-md-8">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th bgcolor="#FFFFFF">Nombre</th>
+                  <th bgcolor="#FFFFFF">Simbolo</th>
+                  <th bgcolor="#FFFFFF"> </th>
+                  <!-- <th></th>
+                  <th></th> -->
+                </tr>
+              </thead>
+              <tbody BGCOLOR="white" >
+                <% @unidad_medidas.each do |unidad_medida| %>
+                  <tr>
+                    <td><%= unidad_medida.nombre %></td>
+                    <td><%= unidad_medida.simbolo %></td>
                     <td><%= link_to 'Editar', unidad_medida %></td>
-            <!-- <td><%= link_to 'Edit', edit_unidad_medida_path(unidad_medida) %></td>
-            <td><%= link_to 'Destroy', unidad_medida, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+                    <!-- <td><%= link_to 'Edit', edit_unidad_medida_path(unidad_medida) %></td>
+                    <td><%= link_to 'Destroy', unidad_medida, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+    <div class="col-md-4">
+      <%= link_to 'Ingresar nueva unidad de medida', new_unidad_medida_path, :class => "btn btn-primary float-right" %>
+    </div>    
+      <p></p>
+    </div>
+  <br>
+
+      </div>  
+      
+    </div>
   </div>
-  <div class="col-md-4">
-    <%= link_to 'Ingresar nueva unidad de medida', new_unidad_medida_path, :class => "btn btn-primary float-right" %>
-  </div>
+</div>
 
 
-    
-    <p></p>
-  </div>
-<br>
+  
