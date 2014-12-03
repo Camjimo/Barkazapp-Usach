@@ -32,7 +32,7 @@
               <% @estado_pedidos.each do |estado_pedido| %>
                 <tr>
                               <td><%= estado_pedido.nombre %></td>
-                          <td><%= link_to 'Detail', estado_pedido %></td>
+                          <td><%= link_to 'Editar', edit_estado_pedido_path(estado_pedido)  %></td>
                   <!-- <td><%= link_to 'Edit', edit_estado_pedido_path(estado_pedido) %></td>
                   <td><%= link_to 'Destroy', estado_pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
                 </tr>

@@ -19,9 +19,9 @@
 
 <div class="form-group">
                 <%= f.label :nombre %>
-            <%= f.text_field :nombre, :class => "form-control" %>
+            <%= f.text_field :nombre,maxlength:50, :class => "form-control" %>
     </div>
 <div class="actions">
-    <%= f.submit "Ingresar nuevo tipo de usuario", :class => "btn btn-primary" %>
+    <%= f.submit "Aceptar", :class => "btn btn-primary" %>
 </div>
 <% end %>
