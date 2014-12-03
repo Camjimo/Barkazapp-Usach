@@ -32,7 +32,7 @@
                 <% @tipo_pagos.each do |tipo_pago| %>
                   <tr>
                                 <td><%= tipo_pago.nombre %></td>
-                            <td><%= link_to 'Detail', tipo_pago %></td>
+                            <td><%= link_to 'Editar', edit_tipo_pago_path(tipo_pago) %></td>
                     <!-- <td><%= link_to 'Edit', edit_tipo_pago_path(tipo_pago) %></td>
                     <td><%= link_to 'Destroy', tipo_pago, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
                   </tr>

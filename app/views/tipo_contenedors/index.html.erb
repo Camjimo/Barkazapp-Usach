@@ -32,7 +32,7 @@
               <% @tipo_contenedors.each do |tipo_contenedor| %>
                 <tr>
                               <td><%= tipo_contenedor.nombre %></td>
-                          <td><%= link_to 'Detail', tipo_contenedor %></td>
+                          <td><%= link_to 'Editar', edit_tipo_contenedor_path(tipo_contenedor) %></td>
                   <!-- <td><%= link_to 'Edit', edit_tipo_contenedor_path(tipo_contenedor) %></td>
                   <td><%= link_to 'Destroy', tipo_contenedor, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
                 </tr>

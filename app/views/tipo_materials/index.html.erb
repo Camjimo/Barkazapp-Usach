@@ -32,7 +32,7 @@
               <% @tipo_materials.each do |tipo_material| %>
                 <tr>
                               <td><%= tipo_material.nombre %></td>
-                          <td><%= link_to 'Detail', tipo_material %></td>
+                          <td><%= link_to 'Editar', edit_tipo_material_path(tipo_material) %></td>
                   <!-- <td><%= link_to 'Edit', edit_tipo_material_path(tipo_material) %></td>
                   <td><%= link_to 'Destroy', tipo_material, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
                 </tr>
