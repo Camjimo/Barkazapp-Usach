@@ -1,6 +1,12 @@
-<div style="background-color:white;min-height:100%;width:100%;padding-top:1%;padding-bottom:49%;padding-left:5%;padding-right:8%;margin-top:1%">
-	<h1><span class="text-center" style="color:#660000">Nuevo tipo de pago</span></h1>
-	<%= render 'form' %>
+<div style="background-color:white;min-height:492px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:40px">	
+	<h1>Nuevo tipo de pago</h1>
+	<div class="row">
+	  <div class="col-md-7">
+		<%= render 'form' %>
+		<p></p>
+		<%= link_to 'Cancelar', tipo_pagos_path, :class => "btn btn-warning" %>
 
-	<%= link_to 'Back', tipo_pagos_path, :class => "btn btn-link" %>
+	  </div>
+	  <div class="col-md-5"> </div>
+	</div>
 </div>

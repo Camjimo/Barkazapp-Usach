@@ -9,7 +9,8 @@ class UnidadMedidasController < ApplicationController
   end
 
   def show
-    respond_with(@unidad_medida)
+    #respond_with(@unidad_medida)
+    redirect_to unidad_medidas_path
   end
 
   def new

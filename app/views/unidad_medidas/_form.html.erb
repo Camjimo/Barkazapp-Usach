@@ -1,7 +1,10 @@
 <%= form_for(@unidad_medida) do |f| %>
 <% if @unidad_medida.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@unidad_medida.errors.count, "error") %> prohibited this unidad_medida from being saved:</h2>
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin-left:150px">
+<tr>
+<td>
+    <h2>Hubo <%= pluralize(@unidad_medida.errors.count, "error") %> error(es) al agregar una nueva unidad de medida:</h2>
 
     <ul>
         <% @unidad_medida.errors.full_messages.each do |msg| %>
@@ -9,10 +12,12 @@
         <% end %>
     </ul>
 </div>
+</td>
+</tr>
+</table>
 <% end %>
-<font color="white">
 <div class="form-group">
-                <%= f.label :nombre %>
+                <%= f.label :nombre  %>
             <%= f.text_field :nombre, :class => "form-control" %>
     </div>
 <div class="form-group">
@@ -20,7 +25,6 @@
             <%= f.text_field :simbolo,maxlength:10, :class => "form-control" %>
     </div>
 <div class="actions">
-    <%= f.submit :class => "btn btn-primary" %>
+    <%= f.submit "Ingresar nueva unidad de medida", :class => "btn btn-primary" %>
 </div>
-</font>
 <% end %>

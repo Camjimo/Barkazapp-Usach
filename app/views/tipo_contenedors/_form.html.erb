@@ -1,7 +1,10 @@
 <%= form_for(@tipo_contenedor) do |f| %>
 <% if @tipo_contenedor.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@tipo_contenedor.errors.count, "error") %> prohibited this tipo_contenedor from being saved:</h2>
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin-left:150px">
+<tr>
+<td>
+    <h2>Hubo <%= pluralize(@tipo_contenedor.errors.count, "error") %> error(es) al agregar el nuevo tipo de contenedor:</h2>
 
     <ul>
         <% @tipo_contenedor.errors.full_messages.each do |msg| %>
@@ -9,13 +12,15 @@
         <% end %>
     </ul>
 </div>
+</td>
+</tr>
+</table>
 <% end %>
-
 <div class="form-group">
                 <%= f.label :nombre %>
             <%= f.text_field :nombre, :class => "form-control" %>
     </div>
 <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit "Ingresar nuevo tipo de contenedor", :class => "btn btn-primary" %>
 </div>
 <% end %>

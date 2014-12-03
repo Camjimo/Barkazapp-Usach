@@ -9,7 +9,8 @@ class TipoPagosController < ApplicationController
   end
 
   def show
-    respond_with(@tipo_pago)
+    #respond_with(@tipo_pago)
+    redirect_to tipo_pagos_path
   end
 
   def new
