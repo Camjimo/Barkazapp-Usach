@@ -2,32 +2,32 @@
 <p id="notice"><%= notice %></p>
 <% end -%>
 
-<h1></h1>
-<p></p>
+
 <hr>
+<div style="background-color:white;min-height:492px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:40px">
+	<h1>Detalle de unidad de medida</h1>
+	<p></p>
+	<div class="row">
+	  <div class="col-md-7">
+		<table class="table table-bordered">
+			<tbody>
+					<tr>
+				  <th>Nombre:</th>
+				  <td><%= @unidad_medida.nombre %></td>
+				</tr>
+					<tr>
+				  <th>Simbolo:</th>
+				  <td><%= @unidad_medida.simbolo %></td>
+				</tr>
+				</tbody>
+		</table>
 
-<div class="row">
-  <div class="col-md-7">
-	<font color="white">
-	<table class="table table-bordered">
-		<tbody>
-				<tr>
-			  <th>Nombre:</th>
-			  <td><%= @unidad_medida.nombre %></td>
-			</tr>
-				<tr>
-			  <th>Simbolo:</th>
-			  <td><%= @unidad_medida.simbolo %></td>
-			</tr>
-			</tbody>
-	</table>
-	</font>
-
-  </div>
-  <div class="col-md-5"> </div>
-</div>
+	  </div>
+	  <div class="col-md-5"> </div>
+	</div>
 
 
 <%= link_to 'Editar', edit_unidad_medida_path(@unidad_medida), :class => "btn btn-default" %>
 <!--<%= link_to 'Destroy', @unidad_medida, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %> -->
 <%= link_to 'Volver', unidad_medidas_path, :class => "btn btn-warning" %>
+</div>

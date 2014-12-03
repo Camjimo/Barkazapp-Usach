@@ -9,7 +9,8 @@ class TipoUsuariosController < ApplicationController
   end
 
   def show
-    respond_with(@tipo_usuario)
+    #respond_with(@tipo_usuario)
+    redirect_to tipo_usuarios_path
   end
 
   def new
