@@ -1,8 +1,8 @@
-<h1>Listing proveedors</h1>
-<p></p>
-<hr>
+<div style="background-color:white;height:492px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:3px">
+  <h2 class="text" style="color:#660000"><strong>Proveedores</strong></h2>
+  <hr>
 
-<%= link_to 'New Proveedor', new_proveedor_path, :class => "btn btn-primary float-right" %>
+<%= link_to 'Agregar proveedor', new_proveedor_path, :class => "btn btn-primary float-right" %>
 
 <table class="table table-hover">
   <thead>
@@ -22,9 +22,8 @@
                     <td><%= proveedor.nombre %></td>
                     <td><%= proveedor.telefono %></td>
                     <td><%= proveedor.correo %></td>
-                <td><%= link_to 'Detail', proveedor %></td>
+                <td><%= link_to 'Editar', edit_proveedor_path(proveedor) %></td>
         <!-- <td><%= link_to 'Edit', edit_proveedor_path(proveedor) %></td>
-        <td><%= link_to 'Destroy', proveedor, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

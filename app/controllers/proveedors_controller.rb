@@ -9,7 +9,8 @@ class ProveedorsController < ApplicationController
   end
 
   def show
-    respond_with(@proveedor)
+    #respond_with(@proveedor)
+    redirect_to proveedors_path
   end
 
   def new
