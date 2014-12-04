@@ -8,6 +8,8 @@ class DetalleCompra < ActiveRecord::Base
 	  		belongs_to :compra
 		
 	# Validations
+			validates :material_id, :cantidad_compra, :tipo_contenedor_id, :precio_unidad_compra, :presence => {:message => "%{value} es un campo obligatorio."}
+			validates :cantidad_compra, :precio_unidad_compra, :numericality => {greater_than: 0, :message => " debe ser mayor a 0."}
 			# validates :cantidad_compra, <validations>
 			# validates :precio_unidad_compra, <validations>
 			# validates :total_compra, <validations>

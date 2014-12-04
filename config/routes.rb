@@ -55,8 +55,11 @@ Tut1::Application.routes.draw do
   devise_for :users
   get "index/home"
   get "menu/index"
-  get "aux/guardar"
-  get "aux/cancelar"
+  get "aux/guardar_pedido"
+  get "aux/cancelar_pedido"
+  get "aux/entregar_pedido"
+  get "aux/finalizar_pedido"
+  get "aux/guardar_compra"
   get "mantenedores/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

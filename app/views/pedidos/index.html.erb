@@ -13,7 +13,7 @@
 <div style="background-color:white;min-height:492px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:3px">
   <h2 style="color:#660000"><strong>Comandas</strong></h2>
   <br/>
-  <p>A contnuación se muestran las comandas registradas. Para agregar una nueva comanda, presione el botón "Nuevo" y para editarla sleccione "Ver Detalle".</p>
+  <p>A contnuación se muestran las comandas registradas. Para agregar una nueva comanda, presione el botón "Nuevo" y para editarla seleccione "Ver Detalle".</p>
   <hr>
 
   <%= link_to 'Nuevo', new_pedido_path, :class => "btn btn-info float-left" %>
@@ -37,7 +37,7 @@
         <tr>
                       <td><%= link_to 'Ver Detalle', pedido %></td>
                       <td><%= pedido.fecha.strftime('%X') %></td>
-                      <td><%= pedido.fecha.strftime('%x') %></td>
+                      <td><%= pedido.fecha.strftime('%d') %>/<%= pedido.fecha.strftime('%m') %>/<%= pedido.fecha.strftime('%Y') %></td>
                       <td><%= pedido.mesa.id %></td>
                       <td><%= pedido.estado_pedido.nombre %></td>
                       <td><%= pedido.usuario.nombre %></td>

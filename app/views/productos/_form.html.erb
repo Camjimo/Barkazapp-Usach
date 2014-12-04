@@ -11,27 +11,48 @@
 </div>
 <% end %>
 
+<table>
+<tr>
 <div class="form-group">
+<td>
                 <%= f.label :nombre %>
+                </td>
+                <td>
             <%= f.text_field :nombre, :class => "form-control" %>
+            </td>
     </div>
+    </tr>
+    <tr>
 <div class="form-group">
+<td>
                 <%= f.label :tipo %>
-            <%= f.text_field :tipo, :class => "form-control" %>
+                </td>
+                <td>
+            <%= f.select :tipo,[['Cocina','Cocina'],['Bar','Bar']],prompt: "Seleccione tipo", :class => "form-control" %>
+            </td>
     </div>
+    </tr>
+    <tr>
 <div class="form-group">
+<td>
                 <%= f.label :precio %>
+                </td>
+                <td>
             <%= f.number_field :precio, :class => "form-control" %>
+            </td>
     </div>
-<div class="form-group">
-                <%= f.label :actual %>
-            <%= f.check_box :actual, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :costo %>
-            <%= f.number_field :costo, :class => "form-control" %>
-    </div>
+    </tr>
+    </table>
+<table class="float-right">
+<tr>
+<td>
 <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit 'Siguiente',:class => "btn btn-primary" %>
 </div>
+</td>
+<td>
+<%= link_to 'Cancelar', productos_path, :class => "btn btn-primary" %>
+</td>
+</tr>
+</table>
 <% end %>

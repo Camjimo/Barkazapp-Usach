@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20141128135726) do
     t.integer  "monto_total"
     t.datetime "fecha"
     t.integer  "monto_iva"
+    t.boolean  "nuevo",                   default: true
     t.string   "tipo",         limit: 10
     t.integer  "proveedor_id"
   end

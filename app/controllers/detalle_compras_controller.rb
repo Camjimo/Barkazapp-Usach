@@ -9,11 +9,13 @@ class DetalleComprasController < ApplicationController
   end
 
   def show
-    respond_with(@detalle_compra)
+    redirect_to compra_path(@detalle_compra.compra_id)
+    #respond_with(@detalle_compra)
   end
 
   def new
     @detalle_compra = DetalleCompra.new
+    @compra = Compra.find(params[:id])
     respond_with(@detalle_compra)
   end
 
@@ -37,6 +39,10 @@ class DetalleComprasController < ApplicationController
   end
 
   private
+    def set_compra
+      #@compra = Compra.find(params[:id])
+    end
+
     def set_detalle_compra
       @detalle_compra = DetalleCompra.find(params[:id])
     end

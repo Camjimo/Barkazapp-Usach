@@ -108,6 +108,7 @@ scaffold:
 		fecha:datetime \
 		monto_iva:integer \
 		tipo:string{10} \
+		nuevo:boolean \
 		proveedor:references;
 
 	rails g scaffold Detalle_compra \

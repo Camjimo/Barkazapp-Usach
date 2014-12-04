@@ -1,42 +1,90 @@
 <%= form_for(@detalle_compra) do |f| %>
 <% if @detalle_compra.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@detalle_compra.errors.count, "error") %> prohibited this detalle_compra from being saved:</h2>
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin-left:150px">
+<tr>
+<td>
+    <h4>Hubo <%= pluralize(@detalle_compra.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
         <% @detalle_compra.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
     </ul>
+    </td>
+    </tr>
+    </table>
 </div>
 <% end %>
 
+<table style="margin-left:130px">
+<tr>
 <div class="form-group">
-                <%= f.label :cantidad_compra %>
-            <%= f.number_field :cantidad_compra, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :precio_unidad_compra %>
-            <%= f.number_field :precio_unidad_compra, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :total_compra %>
-            <%= f.number_field :total_compra, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :fecha_vencimiento_lote %>
-            <%= f.date_select :fecha_vencimiento_lote, :class => "form-control" %>
-    </div>
-<div class="form-group">
+<td width="200px">
                 <%= f.label :material_id %>
-            <%= f.collection_select :material_id, Material.all, :id, :nombre, prompt: true, :class => 'form-control'  %>
+                </td>
+                <td>
+            <%= f.collection_select :material_id, Material.all, :id, :nombre, prompt: "Seleccione material", :class => 'form-control'  %>
+            </td>
     </div>
+    </tr>
+<tr>
 <div class="form-group">
-                <%= f.label :tipo_contenedor_id %>
-            <%= f.collection_select :tipo_contenedor_id, TipoContenedor.all, :id, :nombre, prompt: true, :class => 'form-control'  %>
+<td>
+                <%= f.label :cantidad_compra %>
+                </td>
+                <td>
+            <%= f.number_field :cantidad_compra, :class => "form-control" %>
+            </td>
     </div>
+    </tr>
+<tr>
+<div class="form-group">
+<td>
+                <%= f.label :tipo_contenedor_id %>
+                </td>
+                <td>
+            <%= f.collection_select :tipo_contenedor_id, TipoContenedor.all, :id, :nombre, prompt: "Seleccione tipo de contenedor", :class => 'form-control'  %>
+            </td>
+    </div>
+    </tr>
+    <tr>
+<div class="form-group">
+<td>
+                <%= f.label :precio_unidad_compra %>
+                </td>
+                <td>
+            <%= f.number_field :precio_unidad_compra, :class => "form-control" %>
+            </td>
+    </div>
+    </tr>
+    <tr>
+<div class="form-group">
+<td>
+                <%= f.label :fecha_vencimiento_lote %>
+                </td>
+                <td>
+            <%= f.date_select :fecha_vencimiento_lote, :order => [:day, :month, :year], :use_month_names => ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'], :class => "form-control" %>
+            </td>
+    </div>
+    </tr>
+    </table>
 
+<div class="form-group" style="visibility:hidden">
+                <%= f.label :compra_id %>
+            <%= f.collection_select :compra_id, Compra.all, :id, :id,:selected => @compra.id, prompt: true, :class => 'form-control'  %>
+            </div>
+
+<table style="margin-left:490px">
+<tr>
+<td width="100px">
 <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit "Agregar",:class => "btn btn-primary" %>
 </div>
+</td>
+<td>
+<%= link_to 'Cancelar', @compra, :class => "btn btn-primary" %>
+</td>
+</tr>
+</table>
 <% end %>

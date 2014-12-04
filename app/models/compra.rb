@@ -4,6 +4,7 @@ class Compra < ActiveRecord::Base
 	include Exportable
 
 	  		belongs_to :proveedor
+	  		belongs_to :detalle_compra
 		
 	# Validations
 			# validates :monto_total, <validations>

@@ -23,6 +23,7 @@ class ComprasController < ApplicationController
 
   def create
     @compra = Compra.new(compra_params)
+    @compra.update fecha: Time.now - 3.hour
     @compra.save
     respond_with(@compra)
   end
@@ -33,6 +34,7 @@ class ComprasController < ApplicationController
   end
 
   def destroy
+    DetalleCompra.where("compra_id=?",@compra.id).destroy_all
     @compra.destroy
     respond_with(@compra)
   end
