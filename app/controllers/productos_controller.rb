@@ -9,6 +9,7 @@ class ProductosController < ApplicationController
   end
 
   def show
+    @recetas = Recetum.all.where("producto_id=?",@producto.id)
     respond_with(@producto)
   end
 
@@ -32,6 +33,7 @@ class ProductosController < ApplicationController
   end
 
   def destroy
+    Recetum.where("producto_id=?",@producto.id).destroy_all
     @producto.destroy
     respond_with(@producto)
   end

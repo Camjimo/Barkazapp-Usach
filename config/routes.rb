@@ -48,10 +48,6 @@ Tut1::Application.routes.draw do
 
   resources :mesas
 
-  resources :categories
-
-  resources :products
-
   devise_for :users
   get "index/home"
   get "menu/index"
@@ -60,6 +56,8 @@ Tut1::Application.routes.draw do
   get "aux/entregar_pedido"
   get "aux/finalizar_pedido"
   get "aux/guardar_compra"
+  get "aux/guardar_producto"
+  get "aux/cancelar_producto"
   get "mantenedores/index"
   get "carta/index"
   get "bodega/index"

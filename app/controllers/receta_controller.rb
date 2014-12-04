@@ -1,5 +1,6 @@
 class RecetaController < ApplicationController
   before_action :set_recetum, only: [:show, :edit, :update, :destroy]
+  before_action :set_producto, only: [:new]
 
   respond_to :html
 
@@ -9,7 +10,8 @@ class RecetaController < ApplicationController
   end
 
   def show
-    respond_with(@recetum)
+    redirect_to producto_path(@recetum.producto_id)
+    #respond_with(@recetum)
   end
 
   def new
@@ -37,6 +39,11 @@ class RecetaController < ApplicationController
   end
 
   private
+
+    def set_producto
+      @producto = Producto.find(params[:id])
+    end
+
     def set_recetum
       @recetum = Recetum.find(params[:id])
     end

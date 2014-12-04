@@ -1,26 +1,37 @@
 <%= form_for(@producto) do |f| %>
 <% if @producto.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@producto.errors.count, "error") %> prohibited this producto from being saved:</h2>
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin:0 auto" >
+<tr>
+<td>
+    <h4>Hubo <%= pluralize(@producto.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
         <% @producto.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
     </ul>
+    </td>
+    </tr>
+    </table>
 </div>
 <% end %>
 
-<table>
+<table style="margin-left:150px">
 <tr>
 <div class="form-group">
-<td>
+<td width="100px">
                 <%= f.label :nombre %>
                 </td>
                 <td>
-            <%= f.text_field :nombre, :class => "form-control" %>
+            <%= f.text_field :nombre,maxlength: 50, :class => "form-control" %>
             </td>
     </div>
+    </tr>
+    <tr>
+        <td colspan="2">
+            &nbsp
+        </td>
     </tr>
     <tr>
 <div class="form-group">
@@ -33,17 +44,24 @@
     </div>
     </tr>
     <tr>
+        <td colspan="2">
+            &nbsp
+        </td>
+    </tr>
+    <tr>
 <div class="form-group">
 <td>
                 <%= f.label :precio %>
                 </td>
                 <td>
-            <%= f.number_field :precio, :class => "form-control" %>
+            <%= f.number_field :precio, :in => 1..99999, :class => "form-control" %>
             </td>
     </div>
     </tr>
     </table>
-<table class="float-right">
+
+<br/>
+<table style="margin-left:450px">
 <tr>
 <td>
 <div class="actions">

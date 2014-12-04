@@ -33,4 +33,17 @@ class AuxController < ApplicationController
 		redirect_to compras_path
 	end
 
+	def guardar_producto
+		@producto = Producto.find(params[:id])
+		@producto.update nuevo: false
+		@recetas = Recetum.where("producto_id=? and nuevo=true",params[:id])
+		@recetas.update_all nuevo: false
+	    redirect_to productos_path
+	end
+
+	def cancelar_producto
+		Recetum.where("producto_id=? and nuevo=true",params[:id]).destroy_all
+		redirect_to productos_path
+	end
+	
 end
