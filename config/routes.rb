@@ -59,6 +59,8 @@ Tut1::Application.routes.draw do
   get "aux/guardar_producto"
   get "aux/cancelar_producto"
   get "mantenedores/index"
+  get "carta/index"
+  get "bodega/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
