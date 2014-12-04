@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20141128135726) do
     t.integer "stock_actual_cocina", default: 0, null: false
     t.integer "stock_actual_bar",    default: 0, null: false
     t.integer "precio_compra",                   null: false
+    t.date    "fecha_vencimiento",               null: false
     t.integer "material_id",                     null: false
     t.integer "unidad_medida_id",                null: false
   end
@@ -125,7 +126,7 @@ ActiveRecord::Schema.define(version: 20141128135726) do
     t.string  "nombre",           limit: 50, null: false
     t.integer "pmp"
     t.integer "cantidad"
-    t.integer "unidad_medida2"
+    t.integer "unidad_medida2",              null: false
     t.integer "tipo_material_id",            null: false
     t.integer "unidad_medida_id",            null: false
   end
@@ -153,12 +154,13 @@ ActiveRecord::Schema.define(version: 20141128135726) do
   add_index "pedidos", ["usuario_id"], name: "index_pedidos_on_usuario_id", using: :btree
 
   create_table "productos", force: true do |t|
-    t.string  "nombre", limit: 50,                null: false
-    t.string  "tipo",   limit: 10,                null: false
-    t.integer "precio",                           null: false
-    t.boolean "actual",            default: true, null: false
+    t.string  "nombre",        limit: 50,                null: false
+    t.string  "tipo",          limit: 10,                null: false
+    t.integer "precio",                                  null: false
+    t.boolean "actual",                   default: true, null: false
     t.integer "costo"
-    t.boolean "nuevo",             default: true, null: false
+    t.boolean "nuevo",                    default: true, null: false
+    t.string  "clasificacion", limit: 11,                null: false
   end
 
   create_table "proveedors", force: true do |t|
