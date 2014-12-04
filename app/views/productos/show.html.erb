@@ -1,36 +1,44 @@
-<% if notice -%>
-<p id="notice"><%= notice %></p>
-<% end -%>
+	<div style="background-color:white;min-height:492px;padding-top:16px;padding-bottom:91px;padding-left:200px;padding-right:200px;margin-top:3.3%">
 
-<h1></h1>
-<p></p>
-<hr>
+<h2 style="COLOR:#660000"><strong>Receta Producto</strong></h2>
+	<br />
+	<p>Por favor, agregue los materiales que componen el producto actual presionando el botón "Agregar".</p>
+	<br />
 
-<table class="table table-bordered">
-	<tbody>
-			<tr>
-		  <th>Nombre:</th>
-		  <td><%= @producto.nombre %></td>
-		</tr>
-			<tr>
-		  <th>Tipo:</th>
-		  <td><%= @producto.tipo %></td>
-		</tr>
-			<tr>
-		  <th>Precio:</th>
-		  <td><%= @producto.precio %></td>
-		</tr>
-			<tr>
-		  <th>Actual:</th>
-		  <td><%= @producto.actual %></td>
-		</tr>
-			<tr>
-		  <th>Costo:</th>
-		  <td><%= @producto.costo %></td>
-		</tr>
-		</tbody>
+  <table>
+    <tr>
+      <td width="100px"><%= label_tag "Producto:" %></td>
+      <td><%= label_tag @producto.nombre %></td>
+    </tr>
+  </table>
+
+  <br/>
+
+<%= link_to 'Agregar',{ controller: "receta", action: "new", id: @producto }, :class => "btn btn-primary" %>
+
+<table class="table table-striped" id="tabla_filtro">
+  <thead>
+    <th>Material</th>
+    <th>Cantidad</th>
+  </thead>
+  <% @recetas.each do |recetum| %>
+    <tr> 
+      <td><%= recetum.material.nombre %></td>
+      <td><%= recetum.cantidad_compuesto %> <%= recetum.material.unidad_medida.simbolo %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+<table class="float-right">
+  <tr>
+    <td>
+      <% if Recetum.where('producto_id=?',@producto.id).count>0 %>
+    <%= link_to 'Guardar',{ controller: "aux", action: "guardar_producto", id: @producto },:class => 'btn btn-primary' %>
+    <% end %>
+    </td>
+    <td><%= link_to_if(@producto.nuevo,'Cancelar',@producto,method: :delete,data: { confirm: '¿Está seguro que desea salir?'},:class => 'btn btn-primary') do link_to('Cancelar',{ controller: "aux", action: "cancelar_producto", id: @producto },data: { confirm: '¿Está seguro que desea salir?'},:class => 'btn btn-primary') end %></td>
+  </tr>
 </table>
 
-<%= link_to 'Edit', edit_producto_path(@producto), :class => "btn btn-default" %>
-<%= link_to 'Destroy', @producto, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
-<%= link_to 'Back', productos_path, :class => "btn btn-link" %>
+
+</div>

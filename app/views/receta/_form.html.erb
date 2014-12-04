@@ -1,29 +1,61 @@
 <%= form_for(@recetum) do |f| %>
 <% if @recetum.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@recetum.errors.count, "error") %> prohibited this recetum from being saved:</h2>
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin:0 auto" >
+<tr>
+<td>
+    <h4>Hubo <%= pluralize(@recetum.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
         <% @recetum.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
     </ul>
+    </td>
+    </tr>
+    </table>
 </div>
 <% end %>
 
+<table style="margin-left:150px">
+    <tr>
 <div class="form-group">
-                <%= f.label :cantidad_compuesto %>
-            <%= f.number_field :cantidad_compuesto, :class => "form-control" %>
-    </div>
-<div class="form-group">
+<td width="200px">
                 <%= f.label :material_id %>
-            <%= f.collection_select :material_id, Material.all, :id, :name, prompt: true, :class => 'form-control'  %>
+                </td>
+                <td>
+            <%= f.collection_select :material_id, Material.all, :id, :nombre, prompt: "Seleccione material", :class => 'form-control'  %>
+            </td>
     </div>
+    </tr>
+    <tr><td>&nbsp</td></tr>
+<tr>
 <div class="form-group">
-                <%= f.label :producto_id %>
-            <%= f.collection_select :producto_id, Producto.all, :id, :name, prompt: true, :class => 'form-control'  %>
+<td>
+                <%= f.label :cantidad_compuesto %>
+                </td>
+                <td>
+            <%= f.number_field :cantidad_compuesto, :in => 1..999999, :class => "form-control" %>
+            </td>
     </div>
+    </tr>
+    </table>
+
+    <div class="form-group" style="visibility:hidden">
+                <%= f.label :producto_id %>
+            <%= f.collection_select :producto_id, Producto.all, :id, :id,:selected => @producto.id, prompt: true, :class => 'form-control'  %>
+            </div>
+
+<table style="margin-left:450px">
+<tr>
+<td>
 <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit "Agregar",:class => "btn btn-primary" %>
 </div>
+</td>
+<td>
+<%= link_to 'Cancelar',@producto, :class => "btn btn-primary" %>
+</td>
+</tr>
+</table>
 <% end %>

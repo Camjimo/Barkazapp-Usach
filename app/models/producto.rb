@@ -4,9 +4,9 @@ class Producto < ActiveRecord::Base
 	include Exportable
 
 	# Validations
-			# validates :nombre, <validations>
+			 validates :nombre,:precio,:tipo, :presence => { :message => "%{value} es un campo obligatorio." }
 			# validates :tipo, <validations>
-			# validates :precio, <validations>
+			 #validates :precio, :numericality => {lower_than: 99999, :message => " está fuera de rango (máx 99999)."}
 			# validates :actual, <validations>
 			# validates :costo, <validations>
 	

@@ -14,43 +14,37 @@
 ActiveRecord::Schema.define(version: 20141128135726) do
 
   create_table "catalogo_materials", force: true do |t|
-    t.integer "cantidad_material"
-    t.integer "precio_material"
-    t.integer "material_id"
-    t.integer "unidad_medida_id"
-    t.integer "proveedor_id"
+    t.integer "cantidad_material",             null: false
+    t.integer "precio_material",               null: false
+    t.integer "nuevo",             default: 1, null: false
+    t.integer "material_id",                   null: false
+    t.integer "unidad_medida_id",              null: false
+    t.integer "proveedor_id",                  null: false
   end
 
   add_index "catalogo_materials", ["material_id"], name: "index_catalogo_materials_on_material_id", using: :btree
   add_index "catalogo_materials", ["proveedor_id"], name: "index_catalogo_materials_on_proveedor_id", using: :btree
   add_index "catalogo_materials", ["unidad_medida_id"], name: "index_catalogo_materials_on_unidad_medida_id", using: :btree
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "compras", force: true do |t|
     t.integer  "monto_total"
-    t.datetime "fecha"
+    t.datetime "fecha",                                  null: false
     t.integer  "monto_iva"
-    t.boolean  "nuevo",                   default: true
-    t.string   "tipo",         limit: 10
-    t.integer  "proveedor_id"
+    t.boolean  "nuevo",                   default: true, null: false
+    t.string   "tipo",         limit: 10,                null: false
+    t.integer  "proveedor_id",                           null: false
   end
 
   add_index "compras", ["proveedor_id"], name: "index_compras_on_proveedor_id", using: :btree
 
   create_table "detalle_compras", force: true do |t|
-    t.integer "cantidad_compra"
-    t.integer "precio_unidad_compra"
+    t.integer "cantidad_compra",        null: false
+    t.integer "precio_unidad_compra",   null: false
     t.integer "total_compra"
-    t.date    "fecha_vencimiento_lote"
-    t.integer "material_id"
-    t.integer "tipo_contenedor_id"
-    t.integer "compra_id"
+    t.date    "fecha_vencimiento_lote", null: false
+    t.integer "material_id",            null: false
+    t.integer "tipo_contenedor_id",     null: false
+    t.integer "compra_id",              null: false
   end
 
   add_index "detalle_compras", ["compra_id"], name: "index_detalle_compras_on_compra_id", using: :btree
@@ -58,96 +52,99 @@ ActiveRecord::Schema.define(version: 20141128135726) do
   add_index "detalle_compras", ["tipo_contenedor_id"], name: "index_detalle_compras_on_tipo_contenedor_id", using: :btree
 
   create_table "detalle_pedidos", force: true do |t|
-    t.integer "cantidad_venta"
-    t.integer "precio_venta"
-    t.boolean "nuevo"
-    t.integer "pedido_id"
-    t.integer "producto_id"
+    t.integer "cantidad_venta",                null: false
+    t.integer "precio_venta",                  null: false
+    t.boolean "nuevo",          default: true, null: false
+    t.integer "pedido_id",                     null: false
+    t.integer "producto_id",                   null: false
   end
 
   add_index "detalle_pedidos", ["pedido_id"], name: "index_detalle_pedidos_on_pedido_id", using: :btree
   add_index "detalle_pedidos", ["producto_id"], name: "index_detalle_pedidos_on_producto_id", using: :btree
 
   create_table "equivalencia", force: true do |t|
-    t.integer "cantidad"
-    t.integer "unidad_medida_id"
-    t.integer "tipo_contenedor_id"
+    t.integer "cantidad",           null: false
+    t.integer "unidad_medida_id",   null: false
+    t.integer "tipo_contenedor_id", null: false
   end
 
   add_index "equivalencia", ["tipo_contenedor_id"], name: "index_equivalencia_on_tipo_contenedor_id", using: :btree
   add_index "equivalencia", ["unidad_medida_id"], name: "index_equivalencia_on_unidad_medida_id", using: :btree
 
   create_table "estado_pedidos", force: true do |t|
-    t.string "nombre", limit: 50
+    t.string "nombre", limit: 50, null: false
   end
 
   create_table "historial_costo_productos", force: true do |t|
-    t.integer "precio"
-    t.date    "fecha"
-    t.integer "producto_id"
+    t.integer "precio",      null: false
+    t.date    "fecha",       null: false
+    t.integer "producto_id", null: false
   end
 
   add_index "historial_costo_productos", ["producto_id"], name: "index_historial_costo_productos_on_producto_id", using: :btree
 
   create_table "historial_precio_productos", force: true do |t|
-    t.integer "precio"
-    t.date    "fecha"
-    t.integer "producto_id"
+    t.integer "precio",      null: false
+    t.date    "fecha",       null: false
+    t.integer "producto_id", null: false
   end
 
   add_index "historial_precio_productos", ["producto_id"], name: "index_historial_precio_productos_on_producto_id", using: :btree
 
   create_table "inventario_detalles", force: true do |t|
-    t.integer "stcok_local_material"
-    t.integer "material_id"
-    t.integer "inventario_id"
+    t.integer "stcok_local_material",                null: false
+    t.boolean "nuevo",                default: true, null: false
+    t.integer "material_id",                         null: false
+    t.integer "inventario_id",                       null: false
   end
 
   add_index "inventario_detalles", ["inventario_id"], name: "index_inventario_detalles_on_inventario_id", using: :btree
   add_index "inventario_detalles", ["material_id"], name: "index_inventario_detalles_on_material_id", using: :btree
 
   create_table "inventarios", force: true do |t|
-    t.date   "fecha"
-    t.time   "hora"
-    t.string "tipo",  limit: 10
+    t.date    "fecha",                           null: false
+    t.time    "hora",                            null: false
+    t.string  "tipo",  limit: 10,                null: false
+    t.boolean "nuevo",            default: true, null: false
   end
 
   create_table "lotes", force: true do |t|
-    t.integer "stock_original"
-    t.integer "stock_actual_bodega"
-    t.integer "stock_actual_cocina"
-    t.integer "stock_actual_bar"
-    t.integer "precio_compra"
-    t.integer "material_id"
-    t.integer "unidad_medida_id"
+    t.integer "stock_original",                  null: false
+    t.integer "stock_actual_bodega",             null: false
+    t.integer "stock_actual_cocina", default: 0, null: false
+    t.integer "stock_actual_bar",    default: 0, null: false
+    t.integer "precio_compra",                   null: false
+    t.integer "material_id",                     null: false
+    t.integer "unidad_medida_id",                null: false
   end
 
   add_index "lotes", ["material_id"], name: "index_lotes_on_material_id", using: :btree
   add_index "lotes", ["unidad_medida_id"], name: "index_lotes_on_unidad_medida_id", using: :btree
 
   create_table "materials", force: true do |t|
-    t.string  "nombre",           limit: 50
+    t.string  "nombre",           limit: 50, null: false
     t.integer "pmp"
     t.integer "cantidad"
-    t.integer "tipo_material_id"
-    t.integer "unidad_medida_id"
+    t.integer "unidad_medida2"
+    t.integer "tipo_material_id",            null: false
+    t.integer "unidad_medida_id",            null: false
   end
 
   add_index "materials", ["tipo_material_id"], name: "index_materials_on_tipo_material_id", using: :btree
   add_index "materials", ["unidad_medida_id"], name: "index_materials_on_unidad_medida_id", using: :btree
 
   create_table "mesas", force: true do |t|
-    t.boolean "ocupada"
+    t.boolean "ocupada", default: false, null: false
   end
 
   create_table "pedidos", force: true do |t|
-    t.datetime "fecha"
+    t.datetime "fecha",                           null: false
     t.integer  "monto_total"
-    t.boolean  "nuevo",            default: true
-    t.integer  "mesa_id"
-    t.integer  "estado_pedido_id"
-    t.integer  "tipo_pago_id"
-    t.integer  "usuario_id"
+    t.boolean  "nuevo",            default: true, null: false
+    t.integer  "mesa_id",                         null: false
+    t.integer  "estado_pedido_id",                null: false
+    t.integer  "tipo_pago_id",                    null: false
+    t.integer  "usuario_id",                      null: false
   end
 
   add_index "pedidos", ["estado_pedido_id"], name: "index_pedidos_on_estado_pedido_id", using: :btree
@@ -156,57 +153,50 @@ ActiveRecord::Schema.define(version: 20141128135726) do
   add_index "pedidos", ["usuario_id"], name: "index_pedidos_on_usuario_id", using: :btree
 
   create_table "productos", force: true do |t|
-    t.string  "nombre", limit: 50
-    t.string  "tipo",   limit: 10
-    t.integer "precio"
-    t.boolean "actual"
+    t.string  "nombre", limit: 50,                null: false
+    t.string  "tipo",   limit: 10,                null: false
+    t.integer "precio",                           null: false
+    t.boolean "actual",            default: true, null: false
     t.integer "costo"
+    t.boolean "nuevo",             default: true, null: false
   end
-
-  create_table "products", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
 
   create_table "proveedors", force: true do |t|
-    t.string  "nombre",   limit: 50
+    t.string  "nombre",   limit: 50,                 null: false
     t.integer "telefono"
     t.string  "correo",   limit: 100
+    t.boolean "nuevo",                default: true
   end
 
   create_table "receta", force: true do |t|
-    t.integer "cantidad_compuesto"
-    t.integer "material_id"
-    t.integer "producto_id"
+    t.integer "cantidad_compuesto",                null: false
+    t.boolean "nuevo",              default: true, null: false
+    t.integer "material_id",                       null: false
+    t.integer "producto_id",                       null: false
   end
 
   add_index "receta", ["material_id"], name: "index_receta_on_material_id", using: :btree
   add_index "receta", ["producto_id"], name: "index_receta_on_producto_id", using: :btree
 
   create_table "tipo_contenedors", force: true do |t|
-    t.string "nombre", limit: 50
+    t.string "nombre", limit: 50, null: false
   end
 
   create_table "tipo_materials", force: true do |t|
-    t.string "nombre", limit: 50
+    t.string "nombre", limit: 50, null: false
   end
 
   create_table "tipo_pagos", force: true do |t|
-    t.string "nombre", limit: 50
+    t.string "nombre", limit: 50, null: false
   end
 
   create_table "tipo_usuarios", force: true do |t|
-    t.string "nombre", limit: 50
+    t.string "nombre", limit: 50, null: false
   end
 
   create_table "unidad_medidas", force: true do |t|
-    t.string "nombre",  limit: 50
-    t.string "simbolo", limit: 10
+    t.string "nombre",  limit: 50, null: false
+    t.string "simbolo", limit: 10, null: false
   end
 
   create_table "users", force: true do |t|

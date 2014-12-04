@@ -21,26 +21,22 @@
 <table class="table table-hover" id="tabla_filtro">
   <thead>
     <tr>
+      <th>Ver Detalle</th>
       <th>Nombre</th>
       <th>Tipo</th>
       <th>Precio</th>
-      <th>Actual</th>
       <th>Costo</th>
-      <th></th>
-      <!-- <th></th>
-      <th></th> -->
     </tr>
   </thead>
 
   <tbody>
     <% @productos.each do |producto| %>
       <tr>
+                    <td><%= link_to 'Ver Detalle', producto %></td>
                     <td><%= producto.nombre %></td>
                     <td><%= producto.tipo %></td>
-                    <td><%= producto.precio %></td>
-                    <td><%= producto.actual %></td>
-                    <td><%= producto.costo %></td>
-                <td><%= link_to 'Detail', producto %></td>
+                    <td>$ <%= producto.precio %></td>
+                    <td>$ <%= producto.costo %></td>
         <!-- <td><%= link_to 'Edit', edit_producto_path(producto) %></td>
         <td><%= link_to 'Destroy', producto, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>

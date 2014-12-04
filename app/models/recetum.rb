@@ -7,7 +7,7 @@ class Recetum < ActiveRecord::Base
 	  		belongs_to :producto
 		
 	# Validations
-			# validates :cantidad_compuesto, <validations>
+			 validates :cantidad_compuesto, :material, :presence => { :message => "%{value} es un campo obligatorio." }
 			# validates :material, <validations>
 			# validates :producto, <validations>
 	
