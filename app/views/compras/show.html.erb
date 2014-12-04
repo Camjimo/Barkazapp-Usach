@@ -5,7 +5,10 @@
 	<p>Por favor, agregue los materiales que se encuentran en la compra.</p>
 	<br />
 
+<% if @compra.nuevo %>
 <%= link_to 'Agregar', { controller: "detalle_compras", action: "new", id: @compra }, :class => "btn btn-primary" %>
+<% end %>
+<% @total=0 %>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -20,18 +23,36 @@
 
   <tbody>
     <% @detalle_compras.each do |detalle_compra| %>
+    <% @total=@total+detalle_compra.total_compra %>
       <tr>
                     <td><%= detalle_compra.material.nombre %></td>
                     <td><%= detalle_compra.cantidad_compra %></td>
                     <td><%= detalle_compra.tipo_contenedor.nombre %></td>
-                    <td><%= detalle_compra.precio_unidad_compra %></td>
+                    <td>$ <%= detalle_compra.precio_unidad_compra %></td>
       </tr>
     <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><%= label_tag "Monto Total:" %></td>
+      <td>$ <%= @total %></td>
+    </tr>
+  </tfoot>
 </table>
 
-<%= link_to 'Edit', edit_compra_path(@compra), :class => "btn btn-default" %>
-<%= link_to 'Destroy', @compra, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
-<%= link_to 'Back', compras_path, :class => "btn btn-link" %>
+<table class="float-right">
+<tr>
+<td>
+<% if DetalleCompra.where("compra_id=?",@compra.id).count>0 and @compra.nuevo %>
+<%= link_to 'Guardar', { controller: "aux", action: "guardar_compra", id: @compra }, :class => "btn btn-primary" %>
+<% end %>
+</td>
+<td>
+<%= link_to_if(!@compra.nuevo,'Cancelar',compras_path, data: { confirm: "¿Está seguro que desea salir?" },:class => "btn btn-primary") do link_to('Cancelar', @compra, method: :delete, data: { confirm: "¿Está seguro que desea salir?" }, :class => "btn btn-primary") end %>
+</td>
+</tr>
+</table>
 
 </div>

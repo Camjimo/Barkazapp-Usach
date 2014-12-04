@@ -1,3 +1,13 @@
+<table style="margin-top:2%" class="float-right">
+<tr>
+<td>
+<%= link_to 'Inicio',menu_index_path, :class => "btn btn-danger", :style => "color:white;" %>
+</td>
+<td>
+<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-danger", :style => "color:white;" %> 
+</td>
+</tr>
+</table>
 <div class="container-fluid">
   <div class="row"> 
     <div class="col-md-1">
@@ -12,7 +22,7 @@
     </div>
 
     <div class="col-md-11">
-      <div style="background-color:white;min-height:100%;width:83%;float:right;padding-top:1%;padding-bottom:49%;padding-left:5%;padding-right:8%;margin-top:1%">
+      <div style="background-color:white;min-height:100%;width:83%;float:right;padding-top:1%;padding-bottom:49%;padding-left:5%;padding-right:8%;margin-top:0%">
         <h1><span class="text-center" style="color:#660000">Estados de pedido</span></h1>
         <p></p>
 
@@ -32,7 +42,7 @@
               <% @estado_pedidos.each do |estado_pedido| %>
                 <tr>
                               <td><%= estado_pedido.nombre %></td>
-                          <td><%= link_to 'Detail', estado_pedido %></td>
+                          <td><%= link_to 'Editar', edit_estado_pedido_path(estado_pedido)  %></td>
                   <!-- <td><%= link_to 'Edit', edit_estado_pedido_path(estado_pedido) %></td>
                   <td><%= link_to 'Destroy', estado_pedido, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
                 </tr>

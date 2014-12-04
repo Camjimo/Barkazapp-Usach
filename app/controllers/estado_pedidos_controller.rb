@@ -9,7 +9,7 @@ class EstadoPedidosController < ApplicationController
   end
 
   def show
-    respond_with(@estado_pedido)
+    #respond_with(@estado_pedido)
     redirect_to estado_pedidos_path
   end
 

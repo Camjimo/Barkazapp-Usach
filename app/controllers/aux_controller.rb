@@ -2,7 +2,7 @@ class AuxController < ApplicationController
 
 	respond_to :html
 
-	def guardar
+	def guardar_pedido
 		@pedido = Pedido.find(params[:id])
 		@pedido.update nuevo: false
 		@detalle_pedidos = DetallePedido.where("pedido_id=? and nuevo=true",params[:id])
@@ -10,9 +10,27 @@ class AuxController < ApplicationController
 	    redirect_to pedidos_path
 	end
 
-	def cancelar
+	def cancelar_pedido
 		DetallePedido.where("pedido_id=? and nuevo=true",params[:id]).destroy_all
 		redirect_to pedidos_path
+	end
+
+	def entregar_pedido
+		@pedido = Pedido.find(params[:id])
+		@pedido.update estado_pedido_id: 2
+		redirect_to pedidos_path
+	end
+
+	def finalizar_pedido
+		@pedido = Pedido.find(params[:id])
+		@pedido.update estado_pedido_id: 3
+		redirect_to pedidos_path
+	end
+
+	def guardar_compra
+		@compra = Compra.find(params[:id])
+		@compra.update nuevo: false
+		redirect_to compras_path
 	end
 
 end

@@ -2,7 +2,7 @@
 
 	<h2 style="COLOR:#660000"><strong>Detalle Comanda</strong></h2>
 	<br />
-	<p>Por favor, agregue los productos solicitados en la comanda.</p>
+	<p>Por favor, agregue los productos solicitados en la comanda presionando el botón "Agregar".</p>
 	<br />
 	<table>
 		<tr>
@@ -21,11 +21,21 @@
 				<%= @pedido.mesa_id %>
 			</td>
 		</tr>
+		<tr>
+			<td>
+				<%= label_tag "Estado:" %>
+			</td>
+			<td>
+			<%= @pedido.estado_pedido.nombre %>
+			</td>
+		</tr>
 	</table>
 	<br/>
-
-	<%= link_to 'Agregar', { controller: "detalle_pedidos", action: "new", id: @pedido }, :class => "btn btn-info" %>
-	<table class="table table-striped" id="tabla_detalle_pedido">
+<% @total = 0 %>
+	<% if @pedido.estado_pedido_id!=3 %>
+	<%= link_to 'Agregar', { controller: "detalle_pedidos", action: "new", id: @pedido }, :class => "btn btn-info", :style => "position:float" %>
+	<% end %>
+	<table class="table table-striped" id="tabla_filtro">
     <thead>
       <tr class="active">
         <th>Producto</th>
@@ -36,24 +46,39 @@
 
     <tbody>
       <% @detalle_pedidos.each do |detalle_pedido| %>
+      <% @total = @total + (detalle_pedido.cantidad_venta*detalle_pedido.precio_venta) %>
         <tr>
                       <!--<td><%= link_to 'Ver Detalle', detalle_pedido %></td>-->
                       <td><%= detalle_pedido.producto.nombre %></td>
                       <td><%= detalle_pedido.cantidad_venta %></td>
-                      <td><%= detalle_pedido.precio_venta %></td>
+                      <td>$ <%= detalle_pedido.precio_venta %></td>
         </tr>
       <% end %>
     </tbody>
+    <tfoot>
+    	<tr>
+    		<td></td>
+    		<td><%= label_tag "Monto Total:" %></td>
+    		<td>$ <%= @total %></td>
+    	</tr>
+    </tfoot>
   </table>
-  	<table width="100%">
+
+  	<table class="float-right">
   	<tr>
   	<td align="right">
-  	<% if DetallePedido.where("pedido_id=?",@pedido.id).count>0 %>
-	<%= link_to 'Guardar', { controller: "aux", action: "guardar", id: @pedido }, :class => "btn btn-primary" %>
+  	<% if DetallePedido.where("pedido_id=?",@pedido.id).count>0 and @pedido.estado_pedido_id!=3 %>
+	<%= link_to 'Guardar', { controller: "aux", action: "guardar_pedido", id: @pedido }, :class => "btn btn-primary" %>
+	<% end %>
+	<% if DetallePedido.where("pedido_id=?",@pedido.id).count>0 and @pedido.estado_pedido_id==1 and !@pedido.nuevo %>
+	<%= link_to "Entregado",{ controller: "aux", action: "entregar_pedido", id: @pedido },data: { confirm: "¿Está seguro que desea cambiar el estado a 'Entregado'?" }, :class => "btn btn-primary" %>
+	<% end %>
+	<% if DetallePedido.where("pedido_id=?",@pedido.id).count>0 and @pedido.estado_pedido_id==2 %>
+	<%= link_to "Pagado",{ controller: "aux", action: "finalizar_pedido", id: @pedido },data: { confirm: "¿Está seguro que desea cambiar el estado a 'Pagado'?" }, :class => "btn btn-primary" %>
 	<% end %>
 	<!--<%= link_to 'Cancelar', pedidos_path, :class => "btn btn-primary" %>-->
 	<!--<%= link_to 'Destroy', @pedido, method: :delete, data: { confirm: "¿Está seguro que desea salir?" }, :class => "btn btn-danger" %>-->
-	<%= link_to_if(!@pedido.nuevo,'Cancelar',{ controller: "aux", action: "cancelar", id: @pedido }, data: { confirm: "¿Está seguro que desea salir?" },:class => "btn btn-primary") do link_to('Cancelar', @pedido, method: :delete, data: { confirm: "¿Está seguro que desea salir?" }, :class => "btn btn-primary") end %>
+	<%= link_to_if(!@pedido.nuevo,'Cancelar',{ controller: "aux", action: "cancelar_pedido", id: @pedido }, data: { confirm: "¿Está seguro que desea salir?" },:class => "btn btn-primary") do link_to('Cancelar', @pedido, method: :delete, data: { confirm: "¿Está seguro que desea salir?" }, :class => "btn btn-primary") end %>
 	</td>
 	</tr>
 	</table>

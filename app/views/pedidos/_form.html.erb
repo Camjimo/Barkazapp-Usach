@@ -37,7 +37,7 @@
             <%= f.label :mesa_id %>
         </td>
         <td>
-            <%= f.collection_select :mesa_id, Mesa.all, :id, :id, prompt: "Seleccione mesa", :class => 'form-control'  %>
+            <%= f.collection_select :mesa_id, Mesa.where("ocupada=false").all, :id, :id, prompt: "Seleccione mesa", :class => 'form-control'  %>
         </td>
         </div>
     </tr>
