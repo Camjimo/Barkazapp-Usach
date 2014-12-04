@@ -9,7 +9,8 @@ class MaterialsController < ApplicationController
   end
 
   def show
-    respond_with(@material)
+    #respond_with(@material)
+    redirect_to materials_path
   end
 
   def new
@@ -21,8 +22,8 @@ class MaterialsController < ApplicationController
   end
 
   def create
-    @material = Material.new(material_params)
-    @material.save
+    @materials = Material.new(material_params)
+    @materials.save
     respond_with(@material)
   end
 
@@ -42,6 +43,6 @@ class MaterialsController < ApplicationController
     end
 
     def material_params
-      params.require(:material).permit(:nombre, :pmp, :cantidad, :tipo_material_id, :unidad_medida_id, :unidad_medida_id)
+      params.require(:material).permit(:nombre, :pmp, :cantidad, :tipo_material_id, :unidad_medida_id)
     end
 end
