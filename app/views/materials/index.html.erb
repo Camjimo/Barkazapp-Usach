@@ -1,17 +1,17 @@
-<h1>Listing materials</h1>
-<p></p>
-<hr>
+<div style="background-color:white;height:492px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:40px">
+  <h2 class="text" style="color:#660000"><strong>Materiales
+<hr></strong></h2>
+ 
+<%= link_to 'Agregar nuevo material', new_material_path, :class => "btn btn-primary float-right" %> 
 
-<%= link_to 'New Material', new_material_path, :class => "btn btn-primary float-right" %>
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Pmp</th>
+      <th>PMP</th>
       <th>Cantidad</th>
       <th>Tipo material</th>
-      <th>Unidad medida</th>
       <th>Unidad medida</th>
       <th></th>
       <!-- <th></th>
@@ -25,10 +25,9 @@
                     <td><%= material.nombre %></td>
                     <td><%= material.pmp %></td>
                     <td><%= material.cantidad %></td>
-                    <td><%= material.tipo_material.name %></td>
-                    <td><%= material.unidad_medida.name %></td>
-                    <td><%= material.unidad_medida.name %></td>
-                <td><%= link_to 'Detail', material %></td>
+                    <td><%= material.tipo_material.nombre %></td>
+                    <td><%= material.unidad_medida.nombre %></td>
+                <td><%= link_to 'Editar', edit_material_path(material)%></td>
         <!-- <td><%= link_to 'Edit', edit_material_path(material) %></td>
         <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
@@ -37,3 +36,4 @@
 </table>
 
 <br>
+</div>

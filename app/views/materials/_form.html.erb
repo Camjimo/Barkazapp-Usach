@@ -1,41 +1,46 @@
-<%= form_for(@material) do |f| %>
-<% if @material.errors.any? %>
-<div id="error_explanation">
-    <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
+<div style="background-color:white;height:492px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:40px">
+  <h2 class="text" style="color:#660000"><strong>Nuevo material
+<hr></strong></h2>
 
-    <ul>
-        <% @material.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="row">
+    <div class="col-md-5">
+        <%= form_for(@material) do |f| %>
+        <% if @material.errors.any? %>
+        <div id="error_explanation">
+            <h2><%= pluralize(@material.errors.count, "error") %> prohibited this material from being saved:</h2>
+
+            <ul>
+                <% @material.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
         <% end %>
-    </ul>
-</div>
-<% end %>
 
-<div class="form-group">
-                <%= f.label :nombre %>
-            <%= f.text_field :nombre, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :pmp %>
-            <%= f.number_field :pmp, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :cantidad %>
-            <%= f.number_field :cantidad, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :tipo_material_id %>
-            <%= f.collection_select :tipo_material_id, TipoMaterial.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
-<div class="form-group">
-                <%= f.label :unidad_medida_id %>
-            <%= f.collection_select :unidad_medida_id, UnidadMedida.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
-<div class="form-group">
-                <%= f.label :unidad_medida_id %>
-            <%= f.collection_select :unidad_medida_id, UnidadMedida.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
-<div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+        <div class="form-group">
+                        <%= f.label :nombre %>
+                    <%= f.text_field :nombre, :class => "form-control" %>
+            </div>
+        <div class="form-group">
+                        <%= f.label :pmp %>
+                    <%= f.number_field :pmp, :class => "form-control" %>
+            </div>
+        <div class="form-group">
+                        <%= f.label :cantidad %>
+                    <%= f.number_field :cantidad, :class => "form-control" %>
+            </div>
+        <div class="form-group">
+                        <%= f.label :tipo_material_id %>
+                    <%= f.collection_select :tipo_material_id, TipoMaterial.all, :id, :nombre, prompt: true, :class => 'form-control'  %>
+            </div>
+        <div class="form-group">
+                        <%= f.label :unidad_medida_id %>
+                    <%= f.collection_select :unidad_medida_id, UnidadMedida.all, :id, :nombre, prompt: true, :class => 'form-control'  %>
+            </div>
+
+        <div class="actions">
+            <%= f.submit :class => "btn btn-primary" %>
+        </div>
+        <% end %>
+    </div>    
 </div>
-<% end %>
