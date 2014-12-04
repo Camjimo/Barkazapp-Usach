@@ -1,31 +1,67 @@
-<div style="background-color:white;height:100%;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:39px">
-  <h1>Listing tipo_pagos</h1>
-  <p></p>
-  <hr>
+<table style="margin-top:2%" class="float-right">
+<tr>
+<td>
+<%= link_to 'Inicio',menu_index_path, :class => "btn btn-danger", :style => "color:white;" %>
+</td>
+<td>
+<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-danger", :style => "color:white;" %> 
+</td>
+</tr>
+</table>
+<div class="container-fluid">
+  <div class="row"> 
+    <div class="col-md-1">
+      <div class="btn-group-vertical"style="padding-left:0%;padding-top:150%;width:260%";role="group" aria-label="...">
+        <%= link_to "Tipo de pago",tipo_pagos_path, :class => "btn btn-default" %></button>
+        <%= link_to "Estado pedido",estado_pedidos_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de contenedor",tipo_contenedors_path, :class => "btn btn-default" %></button>
+        <%= link_to "Unidad de medida",unidad_medidas_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de material",tipo_materials_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de usuario",tipo_usuarios_path, :class => "btn btn-default" %></button>
+      </div>     
+    </div>
 
-  <%= link_to 'New Tipo pago', new_tipo_pago_path, :class => "btn btn-primary float-right" %>
+    <div class="col-md-11">
+      <div style="background-color:white;min-height:100%;width:83%;float:right;padding-top:1%;padding-bottom:49%;padding-left:5%;padding-right:8%;margin-top:0%">
+        <h1><span class="text-center" style="color:#660000">Tipos de pago</span></h1>
+        <p></p>
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th></th>
-        <!-- <th></th>
-        <th></th> -->
-      </tr>
-    </thead>
+        <div class="row">
+          <div class="col-md-8">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th></th>
+                  <!-- <th></th>
+                  <th></th> -->
+                </tr>
+              </thead>
 
-    <tbody>
-      <% @tipo_pagos.each do |tipo_pago| %>
-        <tr>
-                      <td><%= tipo_pago.nombre %></td>
-                  <td><%= link_to 'Detail', tipo_pago %></td>
-          <!-- <td><%= link_to 'Edit', edit_tipo_pago_path(tipo_pago) %></td>
-          <td><%= link_to 'Destroy', tipo_pago, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+              <tbody>
+                <% @tipo_pagos.each do |tipo_pago| %>
+                  <tr>
+                                <td><%= tipo_pago.nombre %></td>
+                            <td><%= link_to 'Editar', edit_tipo_pago_path(tipo_pago) %></td>
+                    <!-- <td><%= link_to 'Edit', edit_tipo_pago_path(tipo_pago) %></td>
+                    <td><%= link_to 'Destroy', tipo_pago, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>  
+          </div>
 
-  <br>
+          <div class="col-md-4">
+            <%= link_to 'Ingresar nuevo tipo de pago', new_tipo_pago_path, :class => "btn btn-primary float-right" %>
+          </div>
+            <p></p>
+        </div>
+      
+
+        
+
+        <br>
+      </div>
+    </div> 
+  </div>
 </div>

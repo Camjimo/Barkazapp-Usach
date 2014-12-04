@@ -5,7 +5,7 @@ class UnidadMedida < ActiveRecord::Base
 
 		
 	# Validations
-			# validates :nombre, <validations>
+			validates :nombre, :simbolo, :presence => {:message => "%{value} es un campo obligatorio."}
 			# validates :simbolo, <validations>
 	
 	# Scopes (used for search form)

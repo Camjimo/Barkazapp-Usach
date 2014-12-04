@@ -9,7 +9,8 @@ class TipoContenedorsController < ApplicationController
   end
 
   def show
-    respond_with(@tipo_contenedor)
+    #respond_with(@tipo_contenedor)
+    redirect_to tipo_contenedors_path
   end
 
   def new

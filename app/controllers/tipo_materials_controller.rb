@@ -9,7 +9,8 @@ class TipoMaterialsController < ApplicationController
   end
 
   def show
-    respond_with(@tipo_material)
+    #respond_with(@tipo_material)
+    redirect_to tipo_materials_path
   end
 
   def new

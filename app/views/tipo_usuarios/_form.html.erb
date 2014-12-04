@@ -1,7 +1,10 @@
 <%= form_for(@tipo_usuario) do |f| %>
 <% if @tipo_usuario.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@tipo_usuario.errors.count, "error") %> prohibited this tipo_usuario from being saved:</h2>
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin-left:150px">
+<tr>
+<td>
+    <h2>Hubo <%= pluralize(@tipo_usuario.errors.count, "error") %> error(es) al agregar el nuevo tipo de usuario:</h2>
 
     <ul>
         <% @tipo_usuario.errors.full_messages.each do |msg| %>
@@ -9,13 +12,16 @@
         <% end %>
     </ul>
 </div>
+</td>
+</tr>
+</table>
 <% end %>
 
 <div class="form-group">
                 <%= f.label :nombre %>
-            <%= f.text_field :nombre, :class => "form-control" %>
+            <%= f.text_field :nombre,maxlength:50, :class => "form-control" %>
     </div>
 <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit "Aceptar", :class => "btn btn-primary" %>
 </div>
 <% end %>
