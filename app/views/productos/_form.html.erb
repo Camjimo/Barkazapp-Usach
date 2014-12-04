@@ -33,6 +33,21 @@
             &nbsp
         </td>
     </tr>
+        <tr>
+<div class="form-group">
+<td>
+                <%= f.label :precio %>
+                </td>
+                <td>
+            <%= f.number_field :precio, :in => 1..99999, :class => "form-control" %>
+            </td>
+    </div>
+    </tr>
+        <tr>
+        <td colspan="2">
+            &nbsp
+        </td>
+    </tr>
     <tr>
 <div class="form-group">
 <td>
@@ -49,13 +64,13 @@
         </td>
     </tr>
     <tr>
-<div class="form-group">
-<td>
-                <%= f.label :precio %>
-                </td>
-                <td>
-            <%= f.number_field :precio, :in => 1..99999, :class => "form-control" %>
-            </td>
+    <div class="form-group">
+        <td>
+          <%= f.label :clasificacion %>
+        </td>
+        <td>
+            <%= f.select :clasificacion,[['Para picar','Para picar'],['Platos','Platos'],['Fajitas','Fajitas'],['Braseros','Braseros'],['Postres','Postres'],['Barra','Barra']], prompt: "Seleccione clasificación", :class => "form-control" %>
+        </td>
     </div>
     </tr>
     </table>
