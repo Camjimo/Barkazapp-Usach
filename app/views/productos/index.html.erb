@@ -23,6 +23,7 @@
       <th>Ver Detalle</th>
       <th>Nombre</th>
       <th>Tipo</th>
+      <th>Clasificacion</th>
       <th>Precio</th>
       <th>Costo</th>
     </tr>
@@ -34,6 +35,7 @@
                     <td><%= link_to 'Ver Detalle', producto %></td>
                     <td><%= producto.nombre %></td>
                     <td><%= producto.tipo %></td>
+                    <td><%= producto.clasificacion %></td>
                     <td>$ <%= producto.precio %></td>
                     <td>$ <%= producto.costo %></td>
         <!-- <td><%= link_to 'Edit', edit_producto_path(producto) %></td>
