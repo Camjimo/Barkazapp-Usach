@@ -1,7 +1,10 @@
 <%= form_for(@inventario) do |f| %>
 <% if @inventario.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@inventario.errors.count, "error") %> prohibited this inventario from being saved:</h2>
+<table class="float-center" style="background-color:#FF9595;border:solid 5px #d9534f;margin:0 auto">
+<tr>
+<td>
+    <h4>Hubo <%= pluralize(@inventario.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
         <% @inventario.errors.full_messages.each do |msg| %>
@@ -9,21 +12,34 @@
         <% end %>
     </ul>
 </div>
+</td>
+</tr>
+</table>
 <% end %>
 
+<table style="margin-left:150px">
+<tr>
 <div class="form-group">
-                <%= f.label :fecha %>
-            <%= f.date_select :fecha, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :hora %>
-            <%= f.time_select :hora, :class => "form-control" %>
-    </div>
-<div class="form-group">
+<td width="100px">
                 <%= f.label :tipo %>
-            <%= f.text_field :tipo, :class => "form-control" %>
+                </td>
+                <td>
+            <%= f.select :tipo,[['Cocina','Cocina'],['Bar','Bar']],prompt: "Seleccione tipo de inventario", :class => "form-control" %>
+            </td>
     </div>
+    </tr>
+    </table>
+<br/>
+    <table style="margin-left:450px">
+    <tr>
+    <td>
 <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit 'Siguiente', :class => "btn btn-primary" %>
 </div>
+</td>
+<td>
+<%= link_to 'Cancelar', inventarios_path, :class => "btn btn-primary" %>
+</td>
+</tr>
+</table>
 <% end %>

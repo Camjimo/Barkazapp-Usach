@@ -16,15 +16,40 @@
 </tr>
 </table>
 <% end %>
+<table style="margin:0 auto">
+<tr>
 <div class="form-group">
+<td width="100px">
                 <%= f.label :nombre  %>
+                </td>
+                <td>
             <%= f.text_field :nombre,maxlength:50, :class => "form-control" %>
+            </td>
     </div>
+    </tr>
+    <tr><td colspan="2">&nbsp</td></tr>
+    <tr>
 <div class="form-group">
+<td>
                 <%= f.label :simbolo %>
+                </td>
+                <td>
             <%= f.text_field :simbolo,maxlength:10, :class => "form-control" %>
+            </td>
     </div>
+    </tr>
+    </table>
+    <br/>
+    <table style="margin-left:60%">
+    <tr>
+    <td>
 <div class="actions">
-    <%= f.submit "Aceptar", :class => "btn btn-primary" %>
+    <%= f.submit "Guardar", :class => "btn btn-primary" %>
 </div>
+</td>
+<td>
+<%= link_to 'Cancelar', unidad_medidas_path, :class => "btn btn-primary" %>
+</td>
+</tr>
+</table>
 <% end %>

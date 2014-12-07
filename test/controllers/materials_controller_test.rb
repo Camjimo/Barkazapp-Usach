@@ -18,7 +18,7 @@ class MaterialsControllerTest < ActionController::TestCase
 
   test "should create material" do
     assert_difference('Material.count') do
-      post :create, material: { cantidad: @material.cantidad, nombre: @material.nombre, pmp: @material.pmp, tipo_material_id: @material.tipo_material_id, unidad_medida_id: @material.unidad_medida_id, unidad_medida_id: @material.unidad_medida_id }
+      post :create, material: { cantidad: @material.cantidad, nombre: @material.nombre, pmp: @material.pmp, tipo_material_id: @material.tipo_material_id, unidad_medida2: @material.unidad_medida2, unidad_medida_id: @material.unidad_medida_id }
     end
 
     assert_redirected_to material_path(assigns(:material))
@@ -35,7 +35,7 @@ class MaterialsControllerTest < ActionController::TestCase
   end
 
   test "should update material" do
-    patch :update, id: @material, material: { cantidad: @material.cantidad, nombre: @material.nombre, pmp: @material.pmp, tipo_material_id: @material.tipo_material_id, unidad_medida_id: @material.unidad_medida_id, unidad_medida_id: @material.unidad_medida_id }
+    patch :update, id: @material, material: { cantidad: @material.cantidad, nombre: @material.nombre, pmp: @material.pmp, tipo_material_id: @material.tipo_material_id, unidad_medida2: @material.unidad_medida2, unidad_medida_id: @material.unidad_medida_id }
     assert_redirected_to material_path(assigns(:material))
   end
 

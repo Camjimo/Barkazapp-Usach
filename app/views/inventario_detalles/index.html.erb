@@ -17,16 +17,7 @@
   </thead>
 
   <tbody>
-    <% @inventario_detalles.each do |inventario_detalle| %>
-      <tr>
-                    <td><%= inventario_detalle.stcok_local_material %></td>
-                    <td><%= inventario_detalle.material.name %></td>
-                    <td><%= inventario_detalle.inventario.name %></td>
-                <td><%= link_to 'Detail', inventario_detalle %></td>
-        <!-- <td><%= link_to 'Edit', edit_inventario_detalle_path(inventario_detalle) %></td>
-        <td><%= link_to 'Destroy', inventario_detalle, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
+
   </tbody>
 </table>
 

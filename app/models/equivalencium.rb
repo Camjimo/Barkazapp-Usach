@@ -7,7 +7,7 @@ class Equivalencium < ActiveRecord::Base
 	  		belongs_to :tipo_contenedor
 		
 	# Validations
-			# validates :cantidad, <validations>
+			 validates :cantidad,:unidad_medida,:tipo_contenedor, :presence => { :message => '%{value} es un campo obligatorio.'}
 			# validates :unidad_medida, <validations>
 			# validates :tipo_contenedor, <validations>
 	

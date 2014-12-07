@@ -11,35 +11,66 @@
 </div>
 <% end %>
 
+<table style="margin:0 auto">
+   <tr>
 <div class="form-group">
-                <%= f.label :stock_original %>
-            <%= f.number_field :stock_original, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :stock_actual_bodega %>
-            <%= f.number_field :stock_actual_bodega, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :stock_actual_cocina %>
-            <%= f.number_field :stock_actual_cocina, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :stock_actual_bar %>
-            <%= f.number_field :stock_actual_bar, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :precio_compra %>
-            <%= f.number_field :precio_compra, :class => "form-control" %>
-    </div>
-<div class="form-group">
+<td width="150px">
                 <%= f.label :material_id %>
-            <%= f.collection_select :material_id, Material.all, :id, :name, prompt: true, :class => 'form-control'  %>
+                </td>
+                <td>
+            <%= @lote.material.nombre  %>
+            </td>
     </div>
+    </tr>
+    <tr><td colspan="2">&nbsp</td></tr>
+    <tr>
 <div class="form-group">
-                <%= f.label :unidad_medida_id %>
-            <%= f.collection_select :unidad_medida_id, UnidadMedida.all, :id, :name, prompt: true, :class => 'form-control'  %>
+<td>
+                <%= f.label :stock_actual_bodega %>
+                </td>
+                <td>
+            <%= @lote.stock_actual_bodega %> <%= @lote.unidad_medida.simbolo %>
+            </td>
     </div>
+    </tr>
+    <tr><td colspan="2">&nbsp</td></tr>
+    <tr>
+<div class="form-group">
+<td>
+                <%= f.label :stock_actual_cocina %>
+                </td>
+                <td>
+            <%= f.number_field :stock_actual_cocina,:in => 0..99999, :class => "form-control" %>
+            </td>
+    </div>
+    </tr>
+    <tr><td colspan="2">&nbsp</td></tr>
+    <tr>
+<div class="form-group">
+<td>
+                <%= f.label :stock_actual_bar %>
+                </td>
+                <td>
+            <%= f.number_field :stock_actual_bar,:in => 0..99999, :class => "form-control" %>
+            </td>
+    </div>
+    </tr>
+    <tr><td colspan="2">&nbsp</td></tr>
+    <tr>
+    </table>
+
+<table style="margin-left:450px">
+<tr>
+<td>
+<% if @lote.stock_actual_bodega>0 %>
 <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit 'Actualizar', :class => "btn btn-primary" %>
 </div>
+<% end %>
+</td>
+<td>
+<%= link_to 'Cancelar', lotes_path, :class => "btn btn-primary" %>
+</td>
+</tr>
+</table>
 <% end %>

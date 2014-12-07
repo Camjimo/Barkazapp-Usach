@@ -9,7 +9,7 @@ class Lote < ActiveRecord::Base
 	# Validations
 			# validates :stock_original, <validations>
 			# validates :stock_actual_bodega, <validations>
-			# validates :stock_actual_cocina, <validations>
+			 validates :stock_actual_cocina,:stock_actual_bar, :presence => {:message => '%{value} es un campo obligatorio.'}
 			# validates :stock_actual_bar, <validations>
 			# validates :precio_compra, <validations>
 			# validates :material, <validations>

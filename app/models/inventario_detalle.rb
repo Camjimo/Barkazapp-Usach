@@ -7,7 +7,7 @@ class InventarioDetalle < ActiveRecord::Base
 	  		belongs_to :inventario
 		
 	# Validations
-			# validates :stcok_local_material, <validations>
+			 validates :stcok_local_material,:material_id, :presence => {:message => '%{value} es un campo obligatorio.'}
 			# validates :material, <validations>
 			# validates :inventario, <validations>
 	

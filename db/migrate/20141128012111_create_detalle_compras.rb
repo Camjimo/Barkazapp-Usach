@@ -5,6 +5,7 @@ class CreateDetalleCompras < ActiveRecord::Migration
       t.integer :precio_unidad_compra,:null => false
       t.integer :total_compra
       t.date :fecha_vencimiento_lote,:null => false
+      t.boolean :nuevo, :null => false, :default => true
       t.references :material,:null => false, index: true
       t.references :tipo_contenedor,:null => false, index: true
       t.references :compra,:null => false, index: true

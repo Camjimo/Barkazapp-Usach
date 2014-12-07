@@ -1,5 +1,6 @@
 class InventarioDetallesController < ApplicationController
   before_action :set_inventario_detalle, only: [:show, :edit, :update, :destroy]
+  before_action :set_inventario, only: [:new]
 
   respond_to :html
 
@@ -9,11 +10,14 @@ class InventarioDetallesController < ApplicationController
   end
 
   def show
-    respond_with(@inventario_detalle)
+    @inventario_detalle = InventarioDetalle.find(params[:id])
+    redirect_to inventarios_path(@inventario_detalle.inventario_id)
+    #respond_with(@inventario_detalle)
   end
 
   def new
     @inventario_detalle = InventarioDetalle.new
+    @inventario = Inventario.find(params[:id])
     respond_with(@inventario_detalle)
   end
 
@@ -23,7 +27,8 @@ class InventarioDetallesController < ApplicationController
   def create
     @inventario_detalle = InventarioDetalle.new(inventario_detalle_params)
     @inventario_detalle.save
-    respond_with(@inventario_detalle)
+    redirect_to inventarios_path(@inventario_detalle.inventario_id)
+    #respond_with(@inventario_detalle)
   end
 
   def update
@@ -37,6 +42,10 @@ class InventarioDetallesController < ApplicationController
   end
 
   private
+    def set_inventario
+      @inventario = Inventario.find(params[:id])
+    end
+
     def set_inventario_detalle
       @inventario_detalle = InventarioDetalle.find(params[:id])
     end

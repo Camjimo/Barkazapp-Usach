@@ -14,3 +14,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+//$(document).ready(function(){
+//	var $body = $('#body');
+//	$body.height(screen.height*0.694);
+//});

@@ -1,28 +1,39 @@
-<h1>Listing inventarios</h1>
-<p></p>
+<div>
+<table width="100%" style="margin-top:1%">
+<tr>
+<td></td>
+<td align="right">
+<%= link_to 'Menú', menu_index_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %>
+<font color="white">|</font>
+<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %> 
+</td>
+</tr>
+</table>
+<div style="background-color:white;min-height:485px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px">
+<h2 style="color:#660000"><strong>Inventario</strong></h2>
+  <br/>
+  <p>A continuación se muestran los inventarios registradas. Para agregar un nuevo inventario, presione el botón "Nuevo" y para editarlo seleccione "Ver Detalle".</p>
 <hr>
 
-<%= link_to 'New Inventario', new_inventario_path, :class => "btn btn-primary float-right" %>
+<%= link_to 'Nuevo', new_inventario_path, :class => "btn btn-primary float-left" %>
 
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>Ver Detalle</th>
       <th>Fecha</th>
       <th>Hora</th>
       <th>Tipo</th>
-      <th></th>
-      <!-- <th></th>
-      <th></th> -->
     </tr>
   </thead>
 
   <tbody>
     <% @inventarios.each do |inventario| %>
       <tr>
-                    <td><%= inventario.fecha %></td>
-                    <td><%= inventario.hora %></td>
+                    <td><%= link_to 'Ver Detalle', inventario %></td>
+                    <td><%= inventario.fecha.strftime('%d') %>/<%= inventario.fecha.strftime('%m') %>/<%= inventario.fecha.strftime('%Y') %></td>
+                    <td><%= inventario.fecha.strftime('%X') %></td>
                     <td><%= inventario.tipo %></td>
-                <td><%= link_to 'Detail', inventario %></td>
         <!-- <td><%= link_to 'Edit', edit_inventario_path(inventario) %></td>
         <td><%= link_to 'Destroy', inventario, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
@@ -31,3 +42,5 @@
 </table>
 
 <br>
+</div>
+</div>

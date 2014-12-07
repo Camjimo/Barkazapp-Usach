@@ -63,13 +63,7 @@ scaffold:
 		nombre:string{50} \
 		simbolo:string{10};
 
-	rails g scaffold Material \
-		nombre:string{50} \
-		pmp:integer \
-		cantidad:integer \
-		tipo_material:references \
-		unidad_medida:references \
-		unidad_medida:references;
+	rails g scaffold Material nombre:string{50} pmp:integer cantidad:integer tipo_material:references unidad_medida:references unidad_medida2:integer;
 
 	rails g scaffold Receta \
 		cantidad_compuesto:integer \

@@ -30,6 +30,8 @@ class AuxController < ApplicationController
 	def guardar_compra
 		@compra = Compra.find(params[:id])
 		@compra.update nuevo: false
+		@detalle_compras = DetalleCompra.where("compra_id=?",@compra.id)
+		@detalle_compras.update_all nuevo: false
 		redirect_to compras_path
 	end
 
@@ -45,5 +47,31 @@ class AuxController < ApplicationController
 		Recetum.where("producto_id=? and nuevo=true",params[:id]).destroy_all
 		redirect_to productos_path
 	end
+
+	def guardar_inventario
+		@inventario = Inventario.find(params[:id])
+		@inventario.update nuevo: false
+		@inventario_detalles = InventarioDetalle.where('inventario_id=?',params[:id])
+		@inventario_detalles.update_all nuevo: false
+		redirect_to inventarios_path
+	end
+
+	def cancelar_inventario
+		InventarioDetalle.where("inventario_id=? and nuevo=true",params[:id]).destroy_all
+		redirect_to inventarios_path
+	end
+
+	def eliminar_inventario_nuevo	
+		InventarioDetalle.where("inventario_id=? and nuevo=true",params[:id]).destroy_all
+		@inventario = Inventario.find(params[:id])
+		@inventario.destroy
+	    redirect_to inventarios_path
+	end
 	
+	def eliminar_inventario
+		InventarioDetalle.where("inventario_id=?",params[:id]).destroy_all
+		@inventario = Inventario.find(params[:id])
+		@inventario.destroy
+	    redirect_to inventarios_path
+	end
 end

@@ -1,10 +1,11 @@
-<table style="margin-top:2%" class="float-right">
+<div>
+<table width="100%" style="margin-top:1%">
 <tr>
-<td>
-<%= link_to 'Inicio',menu_index_path, :class => "btn btn-danger", :style => "color:white;" %>
-</td>
-<td>
-<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-danger", :style => "color:white;" %> 
+<td></td>
+<td align="right">
+<%= link_to 'Menú', menu_index_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %>
+<font color="white">|</font>
+<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %> 
 </td>
 </tr>
 </table>
@@ -13,8 +14,9 @@
     <div class="col-md-1">
       <div class="btn-group-vertical"style="padding-left:0%;padding-top:150%;width:260%";role="group" aria-label="...">
         <%= link_to "Tipo de pago",tipo_pagos_path, :class => "btn btn-default" %></button>
-        <%= link_to "Estado pedido",estado_pedidos_path, :class => "btn btn-default" %></button>
+        <%= link_to "Estado de comanda",estado_pedidos_path, :class => "btn btn-default" %></button>
         <%= link_to "Tipo de contenedor",tipo_contenedors_path, :class => "btn btn-default" %></button>
+        <%= link_to "Equivalencias",equivalencia_path, :class => "btn btn-default" %></button>
         <%= link_to "Unidad de medida",unidad_medidas_path, :class => "btn btn-default" %></button>
         <%= link_to "Tipo de material",tipo_materials_path, :class => "btn btn-default" %></button>
         <%= link_to "Tipo de usuario",tipo_usuarios_path, :class => "btn btn-default" %></button>
@@ -22,17 +24,19 @@
     </div>
 
     <div class="col-md-11">
-      <div style="background-color:white;min-height:100%;width:83%;float:right;padding-top:1%;padding-bottom:49%;padding-left:5%;padding-right:8%;margin-top:0%">
-        <h1><span class="text-center" style="color:#660000">Tipos de materiales</span></h1>
-        <p></p>
+      <div style="background-color:white;min-height:485px;width:91%;float:right;padding-top:1%;padding-left:5%;padding-right:8%;margin-top:0%">
+        <h2 style="color:#660000"><strong>Tipos de Material</strong></h2>
+        <br/>
+        <p>A contnuación se muestran los tipos de material registrados en el sistema. Para agregar un nuevo tipo de material, presione el botón "Nuevo" y para editarlo seleccione "Editar".</p>
+        <br/>
 
-        <div class="row">
-          <div class="col-md-8">
-            <table class="table table-hover">
+        <%= link_to 'Nuevo', new_tipo_material_path, :class => "btn btn-primary float-left", :style => "margin-left:10%" %>
+            <table class="table table-hover" style="width:80%;margin:0 auto">
             <thead>
               <tr>
+              <th width="10%">Editar</th>
                 <th>Nombre</th>
-                <th></th>
+                
                 <!-- <th></th>
                 <th></th> -->
               </tr>
@@ -41,25 +45,19 @@
             <tbody>
               <% @tipo_materials.each do |tipo_material| %>
                 <tr>
+                <td><%= link_to 'Editar', edit_tipo_material_path(tipo_material) %></td>
                               <td><%= tipo_material.nombre %></td>
-                          <td><%= link_to 'Editar', edit_tipo_material_path(tipo_material) %></td>
+                          
                   <!-- <td><%= link_to 'Edit', edit_tipo_material_path(tipo_material) %></td>
                   <td><%= link_to 'Destroy', tipo_material, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
                 </tr>
               <% end %>
             </tbody>
           </table>
-          </div>
-
-          <div class="col-md-4">
-            <%= link_to 'Ingresar nuevo tipo de material', new_tipo_material_path, :class => "btn btn-primary float-right" %>
-          </div>
-            <p></p>
-        </div>
+        
         <br>
       </div>
     </div> 
   </div>
 </div>
-
-
+</div>

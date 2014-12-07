@@ -6,7 +6,7 @@ one:
   cantidad: 1
   tipo_material_id: 
   unidad_medida_id: 
-  unidad_medida_id: 
+  unidad_medida2: 1
 
 two:
   nombre: MyString
@@ -14,4 +14,4 @@ two:
   cantidad: 1
   tipo_material_id: 
   unidad_medida_id: 
-  unidad_medida_id: 
+  unidad_medida2: 1

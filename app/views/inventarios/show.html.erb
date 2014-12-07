@@ -1,28 +1,44 @@
-<% if notice -%>
-<p id="notice"><%= notice %></p>
-<% end -%>
-
-<h1></h1>
-<p></p>
+<div style="background-color:white;min-height:470px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:5%">
+<h2 style="color:#660000"><strong>Detalle Inventario</strong></h2>
+  <br/>
+  <p>A continuación, agregue un material al inventario presionando el botón "Nuevo" y para editarlo seleccione "Ver Detalle".</p>
 <hr>
+<%= link_to 'Agregar', { controller: "inventario_detalles", action: "new", id: @inventario }, :class => "btn btn-primary" %>
+<table class="table table-striped" id="tabla_filtro">
+    <thead>
+      <tr class="active">
+        <th>Material</th>
+        <th>Cantidad (unidades)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @detalle_inventarios.each do |detalle_inventario| %>
+        <tr>
+                      <td><%= detalle_inventario.material.nombre %></td>
+                      <td><%= detalle_inventario.stcok_local_material %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<table class="table table-bordered">
-	<tbody>
-			<tr>
-		  <th>Fecha:</th>
-		  <td><%= @inventario.fecha %></td>
-		</tr>
-			<tr>
-		  <th>Hora:</th>
-		  <td><%= @inventario.hora %></td>
-		</tr>
-			<tr>
-		  <th>Tipo:</th>
-		  <td><%= @inventario.tipo %></td>
-		</tr>
-		</tbody>
+<table class="float-right">
+<tr>
+<td>
+<%= link_to 'Guardar', { controller: "aux", action: "guardar_inventario", id: @inventario }, :class => "btn btn-primary" %>
+</td>
+<% if !@inventario.nuevo %>
+<td>
+<%= link_to 'Eliminar', {controller: 'aux', action: 'eliminar_inventario', id: @inventario}, data: { confirm: '¿Está seguro que desea eliminar el inventario?' }, :class => "btn btn-primary" %>
+</td>
+<% end %>
+<td>
+<% if @inventario.nuevo %>
+<%= link_to 'Cancelar', { controller: "aux", action: "eliminar_inventario_nuevo", id: @inventario }, data: { confirm: '¿Está seguro que desea salir?' }, :class => "btn btn-primary" %>
+<% end %>
+<% if !@inventario.nuevo %>
+	<%= link_to 'Cancelar', { controller: "aux", action: "cancelar_inventario", id: @inventario }, data: { confirm: '¿Está seguro que desea salir?' }, :class => "btn btn-primary" %>
+<% end %>
+</td>
+</tr>
 </table>
-
-<%= link_to 'Edit', edit_inventario_path(@inventario), :class => "btn btn-default" %>
-<%= link_to 'Destroy', @inventario, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
-<%= link_to 'Back', inventarios_path, :class => "btn btn-link" %>
+</div>

@@ -1,9 +1,20 @@
+<div>
+<table width="100%" style="margin-top:1%">
+<tr>
+<td></td>
+<td align="right">
+<%= link_to 'Menú', menu_index_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %>
+<font color="white">|</font>
+<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %> 
+</td>
+</tr>
+</table>
 <div class="container-fluid">		
 	<div class="row">
 	  	<div class="col-md-1">
 	  		<div class="btn-group-vertical"style="padding-left:0%;padding-top:150%;width:260%";role="group" aria-label="...">
-				<%= link_to "Tipo de pago",tipo_pagos_path, :class => "btn btn-default" %></button>
-				<%= link_to "Estado pedido",estado_pedidos_path, :class => "btn btn-default" %></button>
+				<%= link_to "Tipo de pago",tipo_pagos_path, :class => "btn btn-default" %>
+				<%= link_to "Estado de comanda",estado_pedidos_path, :class => "btn btn-default" %></button>
 				<%= link_to "Tipo de contenedor",tipo_contenedors_path, :class => "btn btn-default" %></button>
 				<%= link_to "Unidad de medida",unidad_medidas_path, :class => "btn btn-default" %></button>
 				<%= link_to "Tipo de material",tipo_materials_path, :class => "btn btn-default" %></button>
@@ -12,15 +23,16 @@
 			</div>		
 	  		
 	  		
-	  	</div
+	  	</div>
 		<div class="col-md-11">
-			<div style="background-color:white;min-height:600px;width:83%;float:right;padding-top:1%;padding-bottom:49%;padding-left:0%;padding-right:8%;margin-top:1%">
+			<div style="background-color:white;height:485px;width:91%;float:right;padding-top:1%;padding-left:0%;padding-right:8%">
 	  			<h2 class="text-center" style="color:#660000"><strong>MANTENEDORES</strong></h2>
 				<p class="text-center" style="color:#660000">
-					Por favor, escoja una categoría para continuar.
-				<p/>
+					Por favor, escoja una categoría de la lista de la izquierda para continuar.
+				</p>
 	  		</div>	
 			
 		</div>
 	</div>
+</div>
 </div>

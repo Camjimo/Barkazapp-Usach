@@ -17,11 +17,29 @@
 </table>
 <% end %>
 
+<table style="margin:0 auto">
+<tr>
 <div class="form-group">
+<td width="100px">
                 <%= f.label :nombre %>
+                </td>
+                <td>
             <%= f.text_field :nombre,maxlength:50, :class => "form-control" %>
+            </td>
     </div>
+    </tr>
+    </table>
+    <br/>
+    <table style="margin-left:60%">
+    <tr>
+    <td>
 <div class="actions">
-    <%= f.submit "Aceptar", :class => "btn btn-primary" %>
+    <%= f.submit "Guardar", :class => "btn btn-primary" %>
 </div>
+</td>
+<td>
+<%= link_to 'Cancelar', tipo_materials_path, :class => "btn btn-primary" %>
+</td>
+</tr>
+</table>
 <% end %>

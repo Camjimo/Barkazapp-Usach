@@ -1,4 +1,6 @@
 Tut1::Application.routes.draw do
+  resources :materials
+
   get "errors/file_not_found"
   get "errors/unprocessable"
   get "errors/internal_server_error"
@@ -25,8 +27,6 @@ Tut1::Application.routes.draw do
   resources :lotes
 
   resources :receta
-
-  resources :materials
 
   resources :unidad_medidas
 
@@ -58,6 +58,10 @@ Tut1::Application.routes.draw do
   get "aux/guardar_compra"
   get "aux/guardar_producto"
   get "aux/cancelar_producto"
+  get "aux/cancelar_inventario"
+  get "aux/guardar_inventario"
+  get "aux/eliminar_inventario_nuevo"
+  get "aux/eliminar_inventario"
   get "mantenedores/index"
   get "carta/index"
   get "bodega/index"

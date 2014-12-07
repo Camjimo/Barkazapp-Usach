@@ -1,7 +1,7 @@
 <%= form_for(@equivalencium) do |f| %>
 <% if @equivalencium.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@equivalencium.errors.count, "error") %> prohibited this equivalencium from being saved:</h2>
+    <h4>Hubo <%= pluralize(@equivalencium.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
         <% @equivalencium.errors.full_messages.each do |msg| %>
@@ -11,19 +11,54 @@
 </div>
 <% end %>
 
+<table style="margin:0 auto">
+<tr>
 <div class="form-group">
-                <%= f.label :cantidad %>
-            <%= f.number_field :cantidad, :class => "form-control" %>
-    </div>
-<div class="form-group">
-                <%= f.label :unidad_medida_id %>
-            <%= f.collection_select :unidad_medida_id, UnidadMedida.all, :id, :name, prompt: true, :class => 'form-control'  %>
-    </div>
-<div class="form-group">
+<td>
                 <%= f.label :tipo_contenedor_id %>
-            <%= f.collection_select :tipo_contenedor_id, TipoContenedor.all, :id, :name, prompt: true, :class => 'form-control'  %>
+                </td>
+                <td>
+            <%= f.collection_select :tipo_contenedor_id, TipoContenedor.all.where("asignado=false"), :id, :nombre, prompt: 'Seleccione tipo de contenedor', :class => 'form-control'  %>
+            </td>
     </div>
+    </tr>
+    <tr><td colspan="2">&nbsp</td></tr>
+<tr>
+<div class="form-group">
+<td width="150px">
+                <%= f.label :cantidad %>
+                </td>
+                <td>
+            <%= f.number_field :cantidad,:in => 1..99999, :class => "form-control" %>
+            </td>
+    </div>
+    </tr>
+    <tr><td colspan="2">&nbsp</td></tr>
+    <tr>
+<div class="form-group">
+<td>
+                <%= f.label :unidad_medida_id %>
+                </td>
+                <td>
+            <%= f.collection_select :unidad_medida_id, UnidadMedida.all, :id, :nombre, prompt: 'Seleccione unidad de medida', :class => 'form-control'  %>
+            </td>
+    </div>
+    </tr>
+    
+    </table>
+
+    <br/>
+
+    <table style="margin-left:60%">
+    <tr>
+    <td>
 <div class="actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit 'Guardar',:class => "btn btn-primary" %>
 </div>
+</td>
+<td>
+<%= link_to 'Cancelar', equivalencia_path, :class => "btn btn-primary" %>
+</td>
+</tr>
+</table>
 <% end %>

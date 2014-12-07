@@ -4,9 +4,9 @@ class CreateMaterials < ActiveRecord::Migration
       t.string :nombre, limit: 50,:null => false
       t.integer :pmp
       t.integer :cantidad
-      t.integer :unidad_medida2, index: true,:null => false
-      t.references :tipo_material,:null => false, index: true
-      t.references :unidad_medida,:null => false, index: true
+      t.references :tipo_material, index: true,:null => false
+      t.references :unidad_medida, index: true,:null => false
+      t.integer :unidad_medida2,:null => false
     end
   end
 end

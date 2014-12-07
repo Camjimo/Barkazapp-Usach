@@ -9,6 +9,7 @@ class InventariosController < ApplicationController
   end
 
   def show
+    @detalle_inventarios = InventarioDetalle.all.where('inventario_id=?',@inventario.id)
     respond_with(@inventario)
   end
 
@@ -22,6 +23,7 @@ class InventariosController < ApplicationController
 
   def create
     @inventario = Inventario.new(inventario_params)
+    @inventario.update fecha: Time.now-3.hour
     @inventario.save
     respond_with(@inventario)
   end
@@ -32,6 +34,7 @@ class InventariosController < ApplicationController
   end
 
   def destroy
+    DetalleInventario.where(["inventario_id=?",@inventario.id]).destroy_all
     @inventario.destroy
     respond_with(@inventario)
   end

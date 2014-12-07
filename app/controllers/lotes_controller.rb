@@ -9,7 +9,8 @@ class LotesController < ApplicationController
   end
 
   def show
-    respond_with(@lote)
+    redirect_to lotes_path
+    #respond_with(@lote)
   end
 
   def new

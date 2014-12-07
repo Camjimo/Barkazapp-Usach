@@ -7,7 +7,7 @@ class Inventario < ActiveRecord::Base
 	# Validations
 			# validates :fecha, <validations>
 			# validates :hora, <validations>
-			# validates :tipo, <validations>
+			 validates :tipo, :presence => {:message => '%{value} es un campo obigatorio.'}
 	
 	# Scopes (used for search form)
 	#   To search by full text use { where("attribute like ?", "%#{attribute}%") }

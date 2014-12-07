@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128135726) do
+ActiveRecord::Schema.define(version: 20141206225805) do
 
   create_table "catalogo_materials", force: true do |t|
     t.integer "cantidad_material",             null: false
@@ -38,13 +38,14 @@ ActiveRecord::Schema.define(version: 20141128135726) do
   add_index "compras", ["proveedor_id"], name: "index_compras_on_proveedor_id", using: :btree
 
   create_table "detalle_compras", force: true do |t|
-    t.integer "cantidad_compra",        null: false
-    t.integer "precio_unidad_compra",   null: false
+    t.integer "cantidad_compra",                       null: false
+    t.integer "precio_unidad_compra",                  null: false
     t.integer "total_compra"
-    t.date    "fecha_vencimiento_lote", null: false
-    t.integer "material_id",            null: false
-    t.integer "tipo_contenedor_id",     null: false
-    t.integer "compra_id",              null: false
+    t.date    "fecha_vencimiento_lote",                null: false
+    t.boolean "nuevo",                  default: true, null: false
+    t.integer "material_id",                           null: false
+    t.integer "tipo_contenedor_id",                    null: false
+    t.integer "compra_id",                             null: false
   end
 
   add_index "detalle_compras", ["compra_id"], name: "index_detalle_compras_on_compra_id", using: :btree
@@ -53,7 +54,7 @@ ActiveRecord::Schema.define(version: 20141128135726) do
 
   create_table "detalle_pedidos", force: true do |t|
     t.integer "cantidad_venta",                null: false
-    t.integer "precio_venta",                  null: false
+    t.integer "precio_venta"
     t.boolean "nuevo",          default: true, null: false
     t.integer "pedido_id",                     null: false
     t.integer "producto_id",                   null: false
@@ -102,21 +103,21 @@ ActiveRecord::Schema.define(version: 20141128135726) do
   add_index "inventario_detalles", ["material_id"], name: "index_inventario_detalles_on_material_id", using: :btree
 
   create_table "inventarios", force: true do |t|
-    t.date    "fecha",                           null: false
-    t.time    "hora",                            null: false
-    t.string  "tipo",  limit: 10,                null: false
-    t.boolean "nuevo",            default: true, null: false
+    t.datetime "fecha",                           null: false
+    t.string   "tipo",  limit: 10,                null: false
+    t.boolean  "nuevo",            default: true, null: false
   end
 
   create_table "lotes", force: true do |t|
-    t.integer "stock_original",                  null: false
-    t.integer "stock_actual_bodega",             null: false
-    t.integer "stock_actual_cocina", default: 0, null: false
-    t.integer "stock_actual_bar",    default: 0, null: false
-    t.integer "precio_compra",                   null: false
-    t.date    "fecha_vencimiento",               null: false
-    t.integer "material_id",                     null: false
-    t.integer "unidad_medida_id",                null: false
+    t.integer "stock_original",                      null: false
+    t.integer "stock_actual_bodega",                 null: false
+    t.integer "stock_actual_cocina", default: 0,     null: false
+    t.integer "stock_actual_bar",    default: 0,     null: false
+    t.integer "precio_compra",                       null: false
+    t.date    "fecha_vencimiento",                   null: false
+    t.boolean "en_uso",              default: false, null: false
+    t.integer "material_id",                         null: false
+    t.integer "unidad_medida_id",                    null: false
   end
 
   add_index "lotes", ["material_id"], name: "index_lotes_on_material_id", using: :btree
@@ -126,9 +127,9 @@ ActiveRecord::Schema.define(version: 20141128135726) do
     t.string  "nombre",           limit: 50, null: false
     t.integer "pmp"
     t.integer "cantidad"
-    t.integer "unidad_medida2",              null: false
     t.integer "tipo_material_id",            null: false
     t.integer "unidad_medida_id",            null: false
+    t.integer "unidad_medida2",              null: false
   end
 
   add_index "materials", ["tipo_material_id"], name: "index_materials_on_tipo_material_id", using: :btree
@@ -139,13 +140,13 @@ ActiveRecord::Schema.define(version: 20141128135726) do
   end
 
   create_table "pedidos", force: true do |t|
-    t.datetime "fecha",                           null: false
+    t.datetime "fecha"
     t.integer  "monto_total"
     t.boolean  "nuevo",            default: true, null: false
     t.integer  "mesa_id",                         null: false
     t.integer  "estado_pedido_id",                null: false
-    t.integer  "tipo_pago_id",                    null: false
-    t.integer  "usuario_id",                      null: false
+    t.integer  "tipo_pago_id"
+    t.integer  "usuario_id"
   end
 
   add_index "pedidos", ["estado_pedido_id"], name: "index_pedidos_on_estado_pedido_id", using: :btree
@@ -181,7 +182,8 @@ ActiveRecord::Schema.define(version: 20141128135726) do
   add_index "receta", ["producto_id"], name: "index_receta_on_producto_id", using: :btree
 
   create_table "tipo_contenedors", force: true do |t|
-    t.string "nombre", limit: 50, null: false
+    t.string  "nombre",   limit: 50,                 null: false
+    t.boolean "asignado",            default: false, null: false
   end
 
   create_table "tipo_materials", force: true do |t|

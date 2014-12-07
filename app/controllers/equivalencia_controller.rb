@@ -9,7 +9,8 @@ class EquivalenciaController < ApplicationController
   end
 
   def show
-    respond_with(@equivalencium)
+    redirect_to equivalencia_path
+    #respond_with(@equivalencium)
   end
 
   def new
@@ -23,6 +24,7 @@ class EquivalenciaController < ApplicationController
   def create
     @equivalencium = Equivalencium.new(equivalencium_params)
     @equivalencium.save
+    TipoContenedor.find(@equivalencium.tipo_contenedor_id).update asignado: true
     respond_with(@equivalencium)
   end
 

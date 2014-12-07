@@ -7,6 +7,7 @@ class CreateLotes < ActiveRecord::Migration
       t.integer :stock_actual_bar,:null => false, :default => 0
       t.integer :precio_compra,:null => false
       t.date :fecha_vencimiento, :null=>false
+      t.boolean :en_uso, :null => false, :default => false
       t.references :material,:null => false, index: true
       t.references :unidad_medida,:null => false, index: true
     end

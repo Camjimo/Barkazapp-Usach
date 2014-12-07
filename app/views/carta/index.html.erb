@@ -1,4 +1,15 @@
-<div style="background-color:white;height:600px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:40px">
+<div>
+<table width="100%" style="margin-top:1%">
+<tr>
+<td></td>
+<td align="right">
+<%= link_to 'Menú', menu_index_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %>
+<font color="white">|</font>
+<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %> 
+</td>
+</tr>
+</table>
+<div style="background-color:white;min-height:485px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;">
   <h2 class="text" style="color:#660000"><strong>Carta
 <hr></strong></h2>
 
@@ -179,4 +190,6 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>

@@ -1,16 +1,46 @@
-<h1>Listing equivalencia</h1>
-<p></p>
-<hr>
+<div>
+<table width="100%" style="margin-top:1%">
+<tr>
+<td></td>
+<td align="right">
+<%= link_to 'Menú', menu_index_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %>
+<font color="white">|</font>
+<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %> 
+</td>
+</tr>
+</table>
+<div class="container-fluid">
+  <div class="row"> 
+    <div class="col-md-1">
+      <div class="btn-group-vertical"style="padding-left:0%;padding-top:150%;width:260%";role="group" aria-label="...">
+        <%= link_to "Tipo de pago",tipo_pagos_path, :class => "btn btn-default" %></button>
+        <%= link_to "Estado de comanda",estado_pedidos_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de contenedor",tipo_contenedors_path, :class => "btn btn-default" %></button>
+        <%= link_to "Equivalencias",equivalencia_path, :class => "btn btn-default" %></button>
+        <%= link_to "Unidad de medida",unidad_medidas_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de material",tipo_materials_path, :class => "btn btn-default" %></button>
+        <%= link_to "Tipo de usuario",tipo_usuarios_path, :class => "btn btn-default" %></button>
+      </div>     
+    </div>
 
-<%= link_to 'New Equivalencium', new_equivalencium_path, :class => "btn btn-primary float-right" %>
+    <div class="col-md-11">
+      <div style="background-color:white;min-height:485px;width:91%;float:right;padding-top:1%;padding-left:5%;padding-right:8%;margin-top:0%">
+<h2 style="color:#660000"><strong>Equivalencias</strong></h2>
+        <br/>
+        <p>A contnuación se muestran las equivalencias registrados en el sistema. Para agregar una nueva equivalencia, presione el botón "Nuevo" y para editarla seleccione "Editar".</p>
+        <br/>
 
-<table class="table table-hover">
+<%= link_to 'Nuevo', new_equivalencium_path, :class => "btn btn-primary float-left", :style => "margin-left:10%" %>
+
+<table class="table table-hover" style="width:80%;margin:0 auto">
   <thead>
     <tr>
+    <th width="10%">Editar</th>
+    <th>Tipo contenedor</th>
       <th>Cantidad</th>
       <th>Unidad medida</th>
-      <th>Tipo contenedor</th>
-      <th></th>
+      
+      
       <!-- <th></th>
       <th></th> -->
     </tr>
@@ -19,10 +49,12 @@
   <tbody>
     <% @equivalencia.each do |equivalencium| %>
       <tr>
+        <td><%= link_to 'Editar', edit_equivalencium_path(equivalencium) %></td>
+        <td><%= equivalencium.tipo_contenedor.nombre %></td>
                     <td><%= equivalencium.cantidad %></td>
-                    <td><%= equivalencium.unidad_medida.name %></td>
-                    <td><%= equivalencium.tipo_contenedor.name %></td>
-                <td><%= link_to 'Detail', equivalencium %></td>
+                    <td><%= equivalencium.unidad_medida.nombre %></td>
+                    
+                
         <!-- <td><%= link_to 'Edit', edit_equivalencium_path(equivalencium) %></td>
         <td><%= link_to 'Destroy', equivalencium, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
@@ -31,3 +63,8 @@
 </table>
 
 <br>
+</div>
+</div>
+</div>
+</div>
+</div>
