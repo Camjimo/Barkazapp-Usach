@@ -4,6 +4,7 @@ class CreateDetallePedidos < ActiveRecord::Migration
       t.integer :cantidad_venta,:null => false
       t.integer :precio_venta
       t.boolean :nuevo, :default => true,:null => false
+      t.boolean :entregado, :default => false, :null => false
       t.references :pedido,:null => false, index: true
       t.references :producto,:null => false, index: true
     end

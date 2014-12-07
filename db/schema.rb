@@ -53,11 +53,12 @@ ActiveRecord::Schema.define(version: 20141206225805) do
   add_index "detalle_compras", ["tipo_contenedor_id"], name: "index_detalle_compras_on_tipo_contenedor_id", using: :btree
 
   create_table "detalle_pedidos", force: true do |t|
-    t.integer "cantidad_venta",                null: false
+    t.integer "cantidad_venta",                 null: false
     t.integer "precio_venta"
-    t.boolean "nuevo",          default: true, null: false
-    t.integer "pedido_id",                     null: false
-    t.integer "producto_id",                   null: false
+    t.boolean "nuevo",          default: true,  null: false
+    t.boolean "entregado",      default: false, null: false
+    t.integer "pedido_id",                      null: false
+    t.integer "producto_id",                    null: false
   end
 
   add_index "detalle_pedidos", ["pedido_id"], name: "index_detalle_pedidos_on_pedido_id", using: :btree

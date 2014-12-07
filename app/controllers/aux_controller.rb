@@ -18,6 +18,8 @@ class AuxController < ApplicationController
 	def entregar_pedido
 		@pedido = Pedido.find(params[:id])
 		@pedido.update estado_pedido_id: 2
+		@detalle_pedidos = DetallePedido.where("pedido_id=?",params[:id])
+		@detalle_pedidos.update_all entregado: true
 		redirect_to pedidos_path
 	end
 
