@@ -5,7 +5,7 @@ class Proveedor < ActiveRecord::Base
 
 		
 	# Validations
-			# validates :nombre, <validations>
+			 validates :nombre, :presence => { :margin => "%{value} es un campo obligatorio." }
 			# validates :telefono, <validations>
 			# validates :correo, <validations>
 	

@@ -27,11 +27,11 @@
       <div style="background-color:white;min-height:485px;width:91%;float:right;padding-top:1%;padding-left:5%;padding-right:8%;margin-top:0%">
         <h2 style="color:#660000"><strong>Tipos de Material</strong></h2>
         <br/>
-        <p>A contnuación se muestran los tipos de material registrados en el sistema. Para agregar un nuevo tipo de material, presione el botón "Nuevo" y para editarlo seleccione "Editar".</p>
+        <p>A continuación se muestran los tipos de material registrados en el sistema. Para agregar un nuevo tipo de material, presione el botón "Nuevo" y para editarlo seleccione "Editar".</p>
         <br/>
 
         <%= link_to 'Nuevo', new_tipo_material_path, :class => "btn btn-primary float-left", :style => "margin-left:10%" %>
-            <table class="table table-hover" style="width:80%;margin:0 auto">
+            <table class="table table-hover" style="width:80%;margin:0 auto" id="tabla_filtro">
             <thead>
               <tr>
               <th width="10%">Editar</th>

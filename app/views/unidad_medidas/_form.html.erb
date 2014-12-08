@@ -1,10 +1,10 @@
 <%= form_for(@unidad_medida) do |f| %>
 <% if @unidad_medida.errors.any? %>
 <div id="error_explanation">
-<table style="background-color:#FF9595;border:solid 5px #d9534f;margin-left:150px">
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin:0 auto">
 <tr>
 <td>
-    <h2>Hubo <%= pluralize(@unidad_medida.errors.count, "error") %> error(es) al agregar una nueva unidad de medida:</h2>
+    <h4>Hubo <%= pluralize(@unidad_medida.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
         <% @unidad_medida.errors.full_messages.each do |msg| %>
@@ -15,6 +15,7 @@
 </td>
 </tr>
 </table>
+</div>
 <% end %>
 <table style="margin:0 auto">
 <tr>

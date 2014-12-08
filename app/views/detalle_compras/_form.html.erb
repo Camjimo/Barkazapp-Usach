@@ -1,7 +1,7 @@
 <%= form_for(@detalle_compra) do |f| %>
 <% if @detalle_compra.errors.any? %>
 <div id="error_explanation">
-<table style="background-color:#FF9595;border:solid 5px #d9534f;margin-left:150px">
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin:0 auto">
 <tr>
 <td>
     <h4>Hubo <%= pluralize(@detalle_compra.errors.count, "") %> error(es) en el registro:</h4>
@@ -34,7 +34,7 @@
                 <%= f.label :cantidad_compra %>
                 </td>
                 <td>
-            <%= f.number_field :cantidad_compra, :class => "form-control" %>
+            <%= f.number_field :cantidad_compra,:in => 1..99999, :class => "form-control" %>
             </td>
     </div>
     </tr>
@@ -44,7 +44,7 @@
                 <%= f.label :tipo_contenedor_id %>
                 </td>
                 <td>
-            <%= f.collection_select :tipo_contenedor_id, TipoContenedor.all, :id, :nombre, prompt: "Seleccione tipo de contenedor", :class => 'form-control'  %>
+            <%= f.collection_select :tipo_contenedor_id, TipoContenedor.all.where("asignado=true"), :id, :nombre, prompt: "Seleccione tipo de contenedor", :class => 'form-control'  %>
             </td>
     </div>
     </tr>
@@ -54,7 +54,7 @@
                 <%= f.label :precio_unidad_compra %>
                 </td>
                 <td>
-            <%= f.number_field :precio_unidad_compra, :class => "form-control" %>
+            <%= f.number_field :precio_unidad_compra,:in => 1..99999, :class => "form-control" %>
             </td>
     </div>
     </tr>

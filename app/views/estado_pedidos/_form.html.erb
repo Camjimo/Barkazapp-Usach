@@ -1,10 +1,10 @@
 <%= form_for(@estado_pedido) do |f| %>
 <% if @estado_pedido.errors.any? %>
 <div id="error_explanation">
-<table style="background-color:#FF9595;border:solid 5px #d9534f;margin-left:150px">
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin:0 auto">
 <tr>
 <td>
-    <h2>Hubo <%= pluralize(@estado_pedido.errors.count, "error") %> error(es) al agregar el nuevo estado de pedido:</h2>
+    <h4>Hubo <%= pluralize(@estado_pedido.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
         <% @estado_pedido.errors.full_messages.each do |msg| %>
@@ -15,6 +15,7 @@
 </td>
 </tr>
 </table>
+</div>
 <% end %>
 <table style="margin:0 auto">
 <tr>

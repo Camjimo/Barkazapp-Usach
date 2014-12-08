@@ -7,9 +7,9 @@ class Equivalencium < ActiveRecord::Base
 	  		belongs_to :tipo_contenedor
 		
 	# Validations
-			 validates :cantidad,:unidad_medida,:tipo_contenedor, :presence => { :message => '%{value} es un campo obligatorio.'}
-			# validates :unidad_medida, <validations>
-			# validates :tipo_contenedor, <validations>
+			 validates :cantidad, :presence => { :message => "%{value} es un campo obligatorio."}
+			 validates :unidad_medida, :presence => { :message => "%{value} es un campo obligatorio."}
+			 validates :tipo_contenedor, :presence => { :message => "%{value} es un campo obligatorio."}
 	
 	# Scopes (used for search form)
 	#   To search by full text use { where("attribute like ?", "%#{attribute}%") }

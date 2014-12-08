@@ -1,34 +1,69 @@
 <%= form_for(@proveedor) do |f| %>
 <% if @proveedor.errors.any? %>
 <div id="error_explanation">
-    <h2><%= pluralize(@proveedor.errors.count, "error") %> prohibited this proveedor from being saved:</h2>
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin:0 auto">
+<tr>
+<td>
+    <h4> Hubo <%= pluralize(@proveedor.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
         <% @proveedor.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
         <% end %>
     </ul>
+    </td>
+    </tr>
+    </table>
 </div>
 <% end %>
-
-<div class="row">
-    <div class="col-md-4">
         <form class="navbar-form navbar-default form-small">
+        <table style="margin:0 auto">
+        
           <div class="form-group">
+          <tr>
+          <td width="100px">
             <%= f.label :nombre %>
-            <%= f.text_field :nombre, :class => "form-control" %>
-
-            <%= f.label :telefono %>
+            </td>
+            <td>
+            <%= f.text_field :nombre,maxlength: 50, :class => "form-control" %>
+            </td>
+            </tr>
+            <tr><td colspan="2">&nbsp</td></tr>
+            <tr>
+            <td>
+            <%= f.label 'teléfono' %>
+            </td>
+            <td>
             <%= f.number_field :telefono, :class => "form-control" %>
-
+            </td>
+            </tr>
+            <tr><td colspan="2">&nbsp</td></tr>
+            <tr>
+            <td>
             <%= f.label :correo %>
-            <%= f.text_field :correo, :class => "form-control" %>
+            </td>
+            <td>
+            <%= f.email_field :correo,maxlength: 50, :class => "form-control" %>
+            </td>
+            </tr>
           </div> 
+          </table>
+
+          <br/>
+
+          <table style="margin-left:60%">
+          <tr>
+          <td>
           <div class="actions">
-            <%= f.submit "Listo", :class => "btn btn-primary" %>
+            <%= f.submit "Guardar", :class => "btn btn-primary" %>
         </div>
+        </td>
+        <td>
+        <%= link_to 'Cancelar', proveedors_path, :class => "btn btn-primary" %>
+        </td>
+        </tr>
+        </table>
         </form>
-    </div>
-</div>
+
 
 <% end %>

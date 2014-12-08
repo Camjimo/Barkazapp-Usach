@@ -1,6 +1,9 @@
 <%= form_for(@material) do |f| %>
 <% if @material.errors.any? %>
 <div id="error_explanation">
+<table style="background-color:#FF9595;border:solid 5px #d9534f;margin:0 auto">
+<tr>
+<td>
     <h4>Hubo <%= pluralize(@material.errors.count, "") %> error(es) en el registro:</h4>
 
     <ul>
@@ -8,6 +11,9 @@
         <li><%= msg %></li>
         <% end %>
     </ul>
+    </td>
+    </tr>
+    </table>
 </div>
 <% end %>
 

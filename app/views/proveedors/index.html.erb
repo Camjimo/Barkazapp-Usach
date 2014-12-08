@@ -1,16 +1,31 @@
-<div style="background-color:white;height:492px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px;margin-top:3px">
+<div>
+<table width="100%" style="margin-top:1%">
+<tr>
+<td></td>
+<td align="right">
+<%= link_to 'Menú', menu_index_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %>
+<font color="white">|</font>
+<%= link_to 'Salir', destroy_user_session_path, :class => "btn btn-link", :style => "color:white;text-decoration:underline" %> 
+</td>
+</tr>
+</table>
+<div style="background-color:white;min-height:485px;padding-top:16px;padding-bottom:49px;padding-left:200px;padding-right:200px">
   <h2 class="text" style="color:#660000"><strong>Proveedores</strong></h2>
-  <hr>
+  
+  <br/>
+  <p>A continuación se muestran los proveedores registrados. Para agregar un nuevo proveedor, presione el botón "Nuevo" y para editarlo seleccione "Editar".</p>
+  <br/>
 
-<%= link_to 'Agregar proveedor', new_proveedor_path, :class => "btn btn-primary float-right" %>
+<%= link_to 'Nuevo', new_proveedor_path, :class => "btn btn-primary float-left" %>
 
 <table class="table table-hover">
   <thead>
     <tr>
+    <th>Editar</th>
       <th>Nombre</th>
-      <th>Telefono</th>
+      <th>Teléfono</th>
       <th>Correo</th>
-      <th></th>
+      
       <!-- <th></th>
       <th></th> -->
     </tr>
@@ -19,14 +34,17 @@
   <tbody>
     <% @proveedors.each do |proveedor| %>
       <tr>
+      <td><%= link_to 'Editar', edit_proveedor_path(proveedor) %></td>
                     <td><%= proveedor.nombre %></td>
                     <td><%= proveedor.telefono %></td>
                     <td><%= proveedor.correo %></td>
-                <td><%= link_to 'Editar', edit_proveedor_path(proveedor) %></td>
-        <!-- <td><%= link_to 'Edit', edit_proveedor_path(proveedor) %></td>
+                
+        <!-- <td><%= link_to 'Edit', edit_proveedor_path(proveedor) %></td>-->
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+</div>
+</div>
